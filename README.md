@@ -189,7 +189,7 @@ NexusRaven is especially capable at *single-turn zero-shot* function calling cap
 2. Code transforming ToolAlpaca and ToolLLM evaluation data into its current forms (pre-standardization of this repo). There are several design choices that we made in order to do our due diligence in ensuring the highest quality evaluation dataset. Our efforts are imperfect and we are more than happy to iterate on these datasets!
 
 
-# NexusRaven model limitations
+## NexusRaven model limitations
 1. We highly recommend using a stop criteria of `["\nReflection:"]`. The model was trained to first generate an answer and then reflect on its answer to either improve the answer or keep the answer the same. However, this "chain of thought" is often not helpful, and the final answer is seldom better than the initial call. Therefore, we strongly recommend using the Initial Call as the main call to execute. 
 2. The model works best when it is connected with a retriever when there are a multitude of functions, as a large number of functions will saturate the context window of this model. 
 3. The model can be prone to generate incorrect calls. Please ensure proper guardrails to capture errant behavior is in place. 
@@ -242,7 +242,7 @@ We thank the following authors and entities for their models and evaluation data
 ## Citation
 ```
 @misc{nexusraven,
-      title={NexusRaven}, 
+      title={NexusRaven: Surpassing the state-of-the-art in open-source function calling LLMs}, 
       author={Nexusflow.ai team},
       year={2023},
       url={http://nexusflow.ai/blog}
