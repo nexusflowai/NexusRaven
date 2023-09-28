@@ -22,8 +22,8 @@ class RawQueriesHelper:
                 self.upload_local_queries("cve_cpe"),
                 self.upload_local_queries("emailrep"),
                 self.upload_local_queries("virustotal"),
-                self.toolalpaca(),
-                self.toolllm(),
+                self.upload_local_queries("toolalpaca"),
+                self.upload_local_queries("toolllm"),
             ]
         )
         d.push_to_hub(
@@ -41,26 +41,6 @@ class RawQueriesHelper:
         return Dataset.from_dict(
             {
                 "dataset": [dataset] * len(dicts),
-                "query_dict": dicts,
-            }
-        )
-
-    def toolalpaca(self) -> Dataset:
-        d = load_dataset("Nexusflow/toolalpaca_simulated", split="train")
-        dicts = list(map(json.dumps, d.to_iterable_dataset()))
-        return Dataset.from_dict(
-            {
-                "dataset": ["toolalpaca"] * len(dicts),
-                "query_dict": dicts,
-            }
-        )
-
-    def toolllm(self) -> Dataset:
-        d = load_dataset("Nexusflow/toolllm_eval", split="train")
-        dicts = list(map(json.dumps, d.to_iterable_dataset()))
-        return Dataset.from_dict(
-            {
-                "dataset": ["toolllm"] * len(dicts),
                 "query_dict": dicts,
             }
         )
