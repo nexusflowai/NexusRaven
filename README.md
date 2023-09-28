@@ -193,6 +193,7 @@ We provide evaluation data and infrastructure for 5 datasets:
 ## Future releases
 1. End-to-end code to replicate our ToolAlpaca model evaluations. The code mapping our standardized API format into a form usable by the ToolAlpaca repo is not ready for release. In addition, the ToolAlpaca repo required several changes in order to run properly. 
 2. Code transforming ToolAlpaca and ToolLLM evaluation data into its current forms (pre-standardization of this repo). There are several design choices that we made in order to do our due diligence in ensuring the highest quality evaluation dataset. Our efforts are imperfect and we are more than happy to iterate on these datasets!
+3. ToolLLM evaluation data mapping as inputs to the ToolLLM and ToolAlpaca workflow. 
 
 
 ## NexusRaven model limitations

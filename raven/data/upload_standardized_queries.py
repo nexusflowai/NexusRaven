@@ -33,6 +33,10 @@ class StandardizedQueriesHelper:
         raw_queries = load_dataset(
             self.hf_path, name=self.raw_queries_subset, split="train"
         )
+        # Filter out ToolLLM examples since those are a special case handled later on
+        raw_queries = raw_queries.filter(
+            lambda s: s != "toolllm", input_columns="dataset"
+        )
         standardized_queries = raw_queries.map(
             function=self._map_single,
             input_columns=["dataset", "query_dict"],
