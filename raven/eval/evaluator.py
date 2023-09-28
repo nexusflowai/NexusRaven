@@ -34,6 +34,7 @@ from raven.eval.raven_utils import (
     RavenPromptTemplate,
     RAVEN_PROMPT,
 )
+from raven.data.toolllm_evaluation_data_utils import ToolLLMEvaluationDataHelper
 
 
 @dataclass
@@ -46,8 +47,15 @@ class Evaluator:
     standardized_api_list_subset: str
     inference_server_url: str | None = None
 
+    def __post_init__(self) -> None:
+        self.toolllm_helper = ToolLLMEvaluationDataHelper(
+            hf_path=self.hf_path,
+            standardized_queries_subset=self.standardized_queries_subset,
+        )
+
     def run(self) -> None:
         functions = self.build_functions()
+        locals().update(functions)
 
         llm = self.build_llm()
         tools = {
@@ -108,11 +116,18 @@ class Evaluator:
                 output = (None, None)
 
             predicted_function_name, predicted_args_dict = output
-            reference_function_name = sample["python_function_name"]
-            reference_input_args_dict = json.loads(sample["python_args_dict"])
-            _, reference_args_dict = functions[reference_function_name](
-                **reference_input_args_dict
-            )
+
+            if "reference_function_call" in sample:
+                reference_function_call = sample["reference_function_call"]
+                reference_function_name, reference_args_dict = eval(
+                    reference_function_call
+                )
+            else:
+                reference_function_name = sample["python_function_name"]
+                reference_input_args_dict = json.loads(sample["python_args_dict"])
+                _, reference_args_dict = functions[reference_function_name](
+                    **reference_input_args_dict
+                )
 
             function_name_match = predicted_function_name == reference_function_name
             args_dict_match = predicted_args_dict == reference_args_dict
@@ -162,6 +177,9 @@ dataset = load_from_disk(path)
         )
 
     def get_eval_dataset(self) -> Dataset:
+        if self.task_name == "toolllm":
+            return self.toolllm_helper.get_eval_dataset()
+
         d = load_dataset(
             path=self.hf_path,
             name=self.standardized_queries_subset,
@@ -213,6 +231,9 @@ dataset = load_from_disk(path)
                 return self.llm_name
 
     def build_functions(self) -> Dict[str, Callable]:
+        if self.task_name == "toolllm":
+            return self.toolllm_helper.build_functions()
+
         d = load_dataset(
             path=self.hf_path,
             name=self.standardized_api_list_subset,
