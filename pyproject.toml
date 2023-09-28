@@ -13,6 +13,7 @@ authors = [
 dependencies = [
     "datasets",
     "langchain==0.0.294",
+    "text-generation",
 ]
 
 [project.optional-dependencies]
