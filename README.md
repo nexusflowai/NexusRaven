@@ -54,6 +54,7 @@ NexusRaven is an open-source and commercially viable function calling LLM that s
 <a><img src="cache/Zero-shot_Evaluation.png" alt="NexusRaven" style="width: 80%; min-width: 300px; display: block; margin: auto;"></a>
 </p>
 
+
 ## Setup
 ```bash
 git clone https://github.com/nexusflowai/NexusRaven
@@ -125,7 +126,9 @@ We provide evaluation data and infrastructure for 5 datasets:
 - `emailrep`
 - `virustotal`
 - `toolalpaca`
-- `toolllm`
+- `toolllm`*
+
+*The ToolLLM evaluation dataset originally contains no ground truths. As a result, we have done our best to curate, filtere, and post-process the ToolLLM evaluation dataset to a higher quality. Unfortunately, the resulting dataset only consists of 21 samples. When benchmarking, we have seen up to 1 sample accuracy differences across runs due to the non-deterministic nature of how these models are served. This translates to a swing in accuracy around 5%. In the future, we are looking to improve the quality of this dataset or use a higher quality generic-domain function calling evaluation dataset! 
 
 
 ### NexusRaven
