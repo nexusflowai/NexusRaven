@@ -5,7 +5,7 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 
 <p align="center">
-<a href="https://huggingface.co/Nexusflow" target="_blank">Nexusflow HF</a> - <a href="http://nexusflow.ai/blog" target="_blank">NexusRaven blog post</a> - <a href="https://huggingface.co/Nexusflow/NexusRaven-13B" target="_blank">NexusRaven-13B</a> - <a href="https://huggingface.co/datasets/Nexusflow/NexusRaven_API_evaluation" target="_blank">NexusRaven API evaluation dataset</a>
+<a href="https://huggingface.co/Nexusflow" target="_blank">Nexusflow HF</a> - <a href="http://nexusflow.ai/blog" target="_blank">NexusRaven blog post</a> - <a href="https://huggingface.co/Nexusflow/NexusRaven-13B" target="_blank">NexusRaven-13B</a> - <a href="https://huggingface.co/datasets/Nexusflow/NexusRaven_API_evaluation" target="_blank">NexusRaven API evaluation dataset</a> - <a href="https://www.linkedin.com/feed/update/urn:li:activity:7113263527909330945/" target="_blank">NexusRaven LinkedIn Post</a> - <a href="https://x.com/NexusflowX/status/1707470614012035561?s=20" target="_blank">NexusRaven Twitter Thread</a>
 </p>
 
 <p align="center" width="100%">
