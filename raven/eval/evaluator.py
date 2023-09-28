@@ -52,6 +52,7 @@ class Evaluator:
             hf_path=self.hf_path,
             standardized_queries_subset=self.standardized_queries_subset,
         )
+        self.agent: Any | None = None
 
     def run(self) -> None:
         functions = self.build_functions()
@@ -76,7 +77,9 @@ class Evaluator:
             )
             original_prep_prompts = LLMChain.prep_prompts
 
-            def monkey_patched_prep_prompts(*args, **kwargs):
+            def monkey_patched_prep_prompts(  # pylint: disable=redefined-outer-name
+                *args, **kwargs
+            ):
                 output = original_prep_prompts(*args, **kwargs)
                 prompts.append(output[0][0].to_string())
                 return output
@@ -103,9 +106,11 @@ class Evaluator:
                 elif isinstance(
                     original_output, str
                 ):  # Model returned execution string
-                    function_name, args, kwargs = parse_function_call_to_name_and_args(
-                        original_output
-                    )
+                    (
+                        function_name,
+                        args,  # pylint: disable=redefined-outer-name
+                        kwargs,
+                    ) = parse_function_call_to_name_and_args(original_output)
                     output = functions[function_name](*args, **kwargs)
                 else:
                     raise ValueError(
@@ -292,9 +297,7 @@ dataset = load_from_disk(path)
             case "TOOLALPACA":
                 return self._build_toolalpaca_agent(llm, tools)
             case _:
-                raise KeyError(
-                    f"Invalid agent_name `{self.agent_name}`. Available agent_name's: {self.available_agents}"
-                )
+                raise KeyError(f"Invalid agent_name `{self.agent_name}`")
 
     def _build_toolllm_agent(self, llm: Any, tools: List[StructuredTool]) -> Any:
         if hasattr(self, "agent"):
@@ -344,7 +347,7 @@ dataset = load_from_disk(path)
             return s
 
         if self.task_name in ["virustotal", "emailrep"]:
-            to_upper = lambda s: s
+            to_upper = lambda s: s  # pylint: disable=unnecessary-lambda-assignment
 
         prompt_to_response = dict()
         for d in responses:
@@ -365,7 +368,8 @@ dataset = load_from_disk(path)
             args_dict = args_dict.removeprefix("Action Input: ")
             try:
                 args_dict = eval(args_dict)
-            except:  # Model output is not a valid python object
+            except:  # pylint: disable=bare-except
+                # Model output is not a valid python object
                 continue
 
             args_strs = []

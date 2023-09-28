@@ -6,13 +6,9 @@ from argparse import ArgumentParser
 
 import os
 
-import json
-
 import ast
 
 import re
-
-from itertools import chain
 
 from datasets import Dataset, concatenate_datasets, load_dataset
 

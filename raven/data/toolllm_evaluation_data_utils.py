@@ -5,8 +5,8 @@ from dataclasses import dataclass
 import json
 
 # Necessary imports to successfully eval ToolLLM functions
-from datetime import datetime
-from enum import Enum as ENUM
+from datetime import datetime  # pylint: disable=unused-import
+from enum import Enum as ENUM  # pylint: disable=unused-import
 
 from datasets import Dataset, load_dataset
 

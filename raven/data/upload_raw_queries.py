@@ -6,7 +6,7 @@ import os
 
 import json
 
-from datasets import Dataset, concatenate_datasets, load_dataset
+from datasets import Dataset, concatenate_datasets
 
 from raven import ROOT_DIR
 
