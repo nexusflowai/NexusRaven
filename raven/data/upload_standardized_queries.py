@@ -73,8 +73,6 @@ class StandardizedQueriesHelper:
                 d = self.parse_input_output(query_dict, context_functions)
             case "toolalpaca":
                 d = self.toolalpaca(query_dict)
-            case "toolllm":
-                d = self.toolllm(query_dict)
             case _:
                 raise ValueError(f"Unrecognized dataset `{dataset}`")
 
@@ -121,28 +119,6 @@ class StandardizedQueriesHelper:
 
         return {
             "prompt": query_dict["instruction"],
-            "python_function_name": function_name,
-            "python_args_dict": json.dumps(args_dict),
-            "context_functions": context_functions,
-        }
-
-    def toolllm(self, query_dict: Dict[str, Any]) -> Dict[str, str]:
-        completion = query_dict["Output"]
-        function_name, _, args_dict = parse_function_call_to_name_and_args(completion)
-
-        context_functions = []
-        for context_function in query_dict["context"]:
-            context_function = context_function.removeprefix("def ")
-            paren_idx = context_function.find("(")
-            context_function = context_function[:paren_idx]
-            context_functions.append(context_function)
-
-        for k in list(args_dict):
-            if isinstance(args_dict[k], float):
-                args_dict[k] = int(args_dict[k])
-
-        return {
-            "prompt": query_dict["Input"],
             "python_function_name": function_name,
             "python_args_dict": json.dumps(args_dict),
             "context_functions": context_functions,

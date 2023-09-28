@@ -34,6 +34,7 @@ from raven.eval.raven_utils import (
     RavenPromptTemplate,
     RAVEN_PROMPT,
 )
+from raven.data.toolllm_evaluation_data_utils import ToolLLMEvaluationDataHelper
 
 
 @dataclass
@@ -46,8 +47,16 @@ class Evaluator:
     standardized_api_list_subset: str
     inference_server_url: str | None = None
 
+    def __post_init__(self) -> None:
+        self.toolllm_helper = ToolLLMEvaluationDataHelper(
+            hf_path=self.hf_path,
+            standardized_queries_subset=self.standardized_queries_subset,
+        )
+        self.agent: Any | None = None
+
     def run(self) -> None:
         functions = self.build_functions()
+        locals().update(functions)
 
         llm = self.build_llm()
         tools = {
@@ -68,7 +77,9 @@ class Evaluator:
             )
             original_prep_prompts = LLMChain.prep_prompts
 
-            def monkey_patched_prep_prompts(*args, **kwargs):
+            def monkey_patched_prep_prompts(  # pylint: disable=redefined-outer-name
+                *args, **kwargs
+            ):
                 output = original_prep_prompts(*args, **kwargs)
                 prompts.append(output[0][0].to_string())
                 return output
@@ -95,9 +106,11 @@ class Evaluator:
                 elif isinstance(
                     original_output, str
                 ):  # Model returned execution string
-                    function_name, args, kwargs = parse_function_call_to_name_and_args(
-                        original_output
-                    )
+                    (
+                        function_name,
+                        args,  # pylint: disable=redefined-outer-name
+                        kwargs,
+                    ) = parse_function_call_to_name_and_args(original_output)
                     output = functions[function_name](*args, **kwargs)
                 else:
                     raise ValueError(
@@ -108,11 +121,18 @@ class Evaluator:
                 output = (None, None)
 
             predicted_function_name, predicted_args_dict = output
-            reference_function_name = sample["python_function_name"]
-            reference_input_args_dict = json.loads(sample["python_args_dict"])
-            _, reference_args_dict = functions[reference_function_name](
-                **reference_input_args_dict
-            )
+
+            if "reference_function_call" in sample:
+                reference_function_call = sample["reference_function_call"]
+                reference_function_name, reference_args_dict = eval(
+                    reference_function_call
+                )
+            else:
+                reference_function_name = sample["python_function_name"]
+                reference_input_args_dict = json.loads(sample["python_args_dict"])
+                _, reference_args_dict = functions[reference_function_name](
+                    **reference_input_args_dict
+                )
 
             function_name_match = predicted_function_name == reference_function_name
             args_dict_match = predicted_args_dict == reference_args_dict
@@ -162,6 +182,9 @@ dataset = load_from_disk(path)
         )
 
     def get_eval_dataset(self) -> Dataset:
+        if self.task_name == "toolllm":
+            return self.toolllm_helper.get_eval_dataset()
+
         d = load_dataset(
             path=self.hf_path,
             name=self.standardized_queries_subset,
@@ -171,11 +194,8 @@ dataset = load_from_disk(path)
             lambda dataset: dataset == self.task_name,
             input_columns="dataset",
         )
-        """
-        TODO Temporarily disable evaluation on toolllm data
-        """
         assert (
-            self.task_name == "toolllm" or len(d) > 0
+            len(d) > 0
         ), f"Unknown task `{self.task_name}`. Available tasks: {list(dict.fromkeys(d['dataset']))}"
 
         return d
@@ -216,6 +236,9 @@ dataset = load_from_disk(path)
                 return self.llm_name
 
     def build_functions(self) -> Dict[str, Callable]:
+        if self.task_name == "toolllm":
+            return self.toolllm_helper.build_functions()
+
         d = load_dataset(
             path=self.hf_path,
             name=self.standardized_api_list_subset,
@@ -274,9 +297,7 @@ dataset = load_from_disk(path)
             case "TOOLALPACA":
                 return self._build_toolalpaca_agent(llm, tools)
             case _:
-                raise KeyError(
-                    f"Invalid agent_name `{self.agent_name}`. Available agent_name's: {self.available_agents}"
-                )
+                raise KeyError(f"Invalid agent_name `{self.agent_name}`")
 
     def _build_toolllm_agent(self, llm: Any, tools: List[StructuredTool]) -> Any:
         if hasattr(self, "agent"):
@@ -326,7 +347,7 @@ dataset = load_from_disk(path)
             return s
 
         if self.task_name in ["virustotal", "emailrep"]:
-            to_upper = lambda s: s
+            to_upper = lambda s: s  # pylint: disable=unnecessary-lambda-assignment
 
         prompt_to_response = dict()
         for d in responses:
@@ -347,7 +368,8 @@ dataset = load_from_disk(path)
             args_dict = args_dict.removeprefix("Action Input: ")
             try:
                 args_dict = eval(args_dict)
-            except:  # Model output is not a valid python object
+            except:  # pylint: disable=bare-except
+                # Model output is not a valid python object
                 continue
 
             args_strs = []

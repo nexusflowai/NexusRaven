@@ -6,13 +6,9 @@ from argparse import ArgumentParser
 
 import os
 
-import json
-
 import ast
 
 import re
-
-from itertools import chain
 
 from datasets import Dataset, concatenate_datasets, load_dataset
 
@@ -31,7 +27,6 @@ class UploadStandardizedAPIListHelper:
                 self.emailrep(),
                 self.virustotal(),
                 self.toolalpaca(),
-                self.toolllm(),
             ]
         )
 
@@ -273,62 +268,6 @@ key (string, required): The API key of the user.
                 "args_dicts": args_dicts,
             }
             function_dicts.append(function_dict)
-        return Dataset.from_list(function_dicts)
-
-    def toolllm(self) -> None:
-        d = load_dataset("Nexusflow/toolllm_eval", split="train")
-        contexts: List[List[str]] = d["context"]
-        contexts = chain.from_iterable(contexts)
-        contexts = dict.fromkeys(contexts)
-        contexts: List[str] = list(contexts)
-
-        datetime_pattern = r"(\(\(\d{4} - \d{2}\) - \d{2}\))"
-        datetime_pattern = re.compile(datetime_pattern)
-
-        def map_single(context: str) -> Dict[str, Any]:
-            context = datetime_pattern.sub(r'"\1"', context)
-
-            function: ast.FunctionDef = ast.parse(context).body[0]
-
-            args_list = list(function.args.args)
-            defaults = list(function.args.defaults)
-            defaults = [None] * (len(args_list) - len(defaults)) + defaults
-
-            args_dicts = []
-            for arg, default in zip(args_list, defaults):
-                if default is None:
-                    default = "None"
-                    required = True
-                else:
-                    default = ast.literal_eval(default)
-                    if isinstance(default, str):
-                        default = default.replace('"', "")
-                        default = f'"{default}"'
-                    default = f"JSON:{json.dumps(default)}"
-                    required = False
-
-                arg_dict = {
-                    "name": arg.arg,
-                    "description": "",
-                    "type": arg.annotation.id,
-                    "default": default,
-                    "required": required,
-                }
-                args_dicts.append(arg_dict)
-
-            description = function.body[0].value.value
-            description = description.strip()
-            description = description.replace("{", "[")
-            description = description.replace("}", "]")
-            function_dict = {
-                "dataset": "toolllm",
-                "name": function.name,
-                "description": description,
-                "args_dicts": args_dicts,
-            }
-            return function_dict
-
-        function_dicts = list(map(map_single, contexts))
         return Dataset.from_list(function_dicts)
 
 
