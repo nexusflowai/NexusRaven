@@ -1,0 +1,154 @@
+[
+    {
+        "query": "Hello, I want to check if this email bsheffield432@gmail.com is deliverable?",
+        "reference": "emailrep_post(email=\"bsheffield432@gmail.com\")"
+    },
+    {
+        "query": "I saw an email iuhy@gmail.com, can you help me check has it already been blacklisted or otherwise seen doing bad things like sending phishing emails, committing fraud, or spamming login forums?",
+        "reference": "emailrep_post(email=\"iuhy@gmail.com\")"
+    },
+    {
+        "query": "Hey there, could you help me find out if the email john.doe123@outlook.com belongs to a free provider or not? Also, I'm curious to know if it has any potential of spoofing?",
+        "reference": "emailrep_post(email=\"john.doe123@outlook.com\")"
+    },
+    {
+        "query": "I received an email from jane@example.org. Can you help me determine if this domain actually exists? I would also like to know how emailrep_post this domain is and if it has a valid MX record.",
+        "reference": "emailrep_post(email=\"jane@example.org\")"
+    },
+    {
+        "query": "Could you provide me with information on the email address xyz@mydomain.net? I'm wondering if it's ever been linked to spam or is it a disposable one?",
+        "reference": "emailrep_post(email=\"xyz@mydomain.net\")"
+    },
+    {
+        "query": "Can you check the status of an email I got, it's bob_smith@freemail.com? I want to know if it's been blacklisted or if it's deliverable.",
+        "reference": "emailrep_post(email=\"bob_smith@freemail.com\")"
+    },
+    {
+        "query": "I got an email from alice@wonderland.com. Can you check if it's associated with any suspicious activity? Also, has it ever been seen before?",
+        "reference": "emailrep_post(email=\"alice@wonderland.com\")"
+    },
+    {
+        "query": "Could you please verify the reputation of the domain for the email micheal_b@company.org? I'm also interested to know if SPF is strictly enforced for it.",
+        "reference": "emailrep_post(email=\"micheal_b@company.org\")"
+    },
+    {
+        "query": "Hello, could you help me investigate the email tom@example.com? I'm interested in knowing if it's been part of any data breaches and if it has been involved in any malicious activities recently.",
+        "reference": "emailrep_post(email=\"tom@example.com\")"
+    },
+    {
+        "query": "Look into the email william_parker@example.com and let me know if it's been part of any recent malicious activities? Has it ever been blacklisted, or does it have a suspicious Top-Level Domain (TLD)?",
+        "reference": "emailrep_post(email=\"william_parker@example.com\")"
+    },
+    {
+        "query": "I received a message from sarah_abbott@freemail.net, can you help verify if this email is from a reputable domain? How many days has it been since the domain was created?",
+        "reference": "emailrep_post(email=\"sarah_abbott@freemail.net\")"
+    },
+    {
+        "query": "Could you help me investigate the email johnny_bravo@cartoon.net? I want to know if it has been seen in any data breaches, and whether its credentials have been leaked recently.",
+        "reference": "emailrep_post(email=\"johnny_bravo@cartoon.net\")"
+    },
+    {
+        "query": "I've got an email from jennifer.lopez@music.com. Can you check its deliverability status and whether it accepts all emails? Also, does it have a valid MX record?",
+        "reference": "emailrep_post(email=\"jennifer.lopez@music.com\")"
+    },
+    {
+        "query": "Hello, could you examine the email elon_musk@tesla.org and tell me if its domain reputation is good? Is it a new domain, and does it have DMARC enforcement?",
+        "reference": "emailrep_post(email=\"elon_musk@tesla.org\")"
+    },
+    {
+        "query": "Could you help me verify the email address ceo@apple.inc? I'm interested to know if it's a disposable one or it comes from a free provider.",
+        "reference": "emailrep_post(email=\"ceo@apple.inc\")"
+    },
+    {
+        "query": "I got an email from bill_gates@microsoft.com. Can you check if it's possible to spoof this email? Does it strictly enforce SPF?",
+        "reference": "emailrep_post(email=\"bill_gates@microsoft.com\")"
+    },
+    {
+        "query": "I'm curious about the reputation of this email mark.zuckerberg@facebook.com. Can you tell me if it has ever been blacklisted or involved in any suspicious activities?",
+        "reference": "emailrep_post(email=\"mark.zuckerberg@facebook.com\")"
+    },
+    {
+        "query": "I saw field234@gmail.com impersonating a co-worker and attempting to send us a malicious attachment. Can you help me report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"field234@gmail.com\", key=\"api_key\")"
+    },
+    {
+        "query": "I just received an email from uiui)@gmail.com that looks like it might be spam. Can you help me report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"uiui)@gmail.com\", key=\"api_key\")"
+    },
+    {
+        "query": "I just received an email from appleapple@hotmail.com that I suspect is a credential phishing attempt. Can you help me report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"appleapple@hotmail.com\", key=\"api_key\")"
+    },
+    {
+        "query": "I received an email from awqr5678@gmail.com impersonating our company's CEO and attempting to send us a malicious attachment. Can you help me report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"awqr5678@gmail.com\", key=\"api_key\")"
+    },
+    {
+        "query": "I received an email from expert@tkz.com that I believe is a romance scam. Can you help me report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"expert@tkz.com\", key=\"api_key\")"
+    },
+    {
+        "query": "I received an unsolicited email from johnrandom234@gmail.com trying to get my bank account information. Can you help me report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"johnrandom234@gmail.com\", key=\"api_key\")"
+    },
+    {
+        "query": "An email from micro123soft@outlook.com pretending to be from Microsoft asked for my account credentials. My key for EmailRep is \"api_key\". How to report it?",
+        "reference": "emailrep_report(email=\"micro123soft@outlook.com\", key=\"api_key\")"
+    },
+    {
+        "query": "Some guy on a forum, alienware99@alien.com, sent me a strange PDF which I think contains malware. Can you help me report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"alienware99@alien.com\", key=\"api_key\")"
+    },
+    {
+        "query": "A person using the email romanticheart44@yahoo.com is trying to lure me into a romance scam. Can we report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"romanticheart44@yahoo.com\", key=\"api_key\")"
+    },
+    {
+        "query": "An email from hacked.account@mail.com is sending strange links, I think the account was taken over. Can you help me report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"hacked.account@mail.com\", key=\"api_key\")"
+    },
+    {
+        "query": "An email from phishing.kit.owner@bad.com seems to be associated with a known threat actor. I'd like to report this to EmailRep. My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"phishing.kit.owner@bad.com\", key=\"api_key\")"
+    },
+    {
+        "query": "I received an email from exploit.host@evil.net and it directed me to a website that tried to exploit my browser. Can you help me report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"exploit.host@evil.net\", key=\"api_key\")"
+    },
+    {
+        "query": "An email from random.phisher@phishy.com tried to scam me, but I can't quite tell how. Can you help me report this as a generic phishing attempt to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"random.phisher@phishy.com\", key=\"api_key\")"
+    },
+    {
+        "query": "I received an email from notpaypal@scam.com pretending to be from PayPal and asking for my login details. My key for EmailRep is \"api_key\". How to report it?",
+        "reference": "emailrep_report(email=\"notpaypal@scam.com\", key=\"api_key\")"
+    },
+    {
+        "query": "I received an unsolicited email from jane.doe2023@yahoo.com that contained a malicious Word document. Can you help me report this to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"jane.doe2023@yahoo.com\", key=\"api_key\")"
+    },
+    {
+        "query": "Hi, I've just received an email from ted.baker@newsletters.com which didn't seem to be a regular newsletter but contained a dubious-looking attachment. Could we report this to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"ted.baker@newsletters.com\", key=\"api_key\")"
+    },
+    {
+        "query": "Hello, I received an unexpected email from mary.johnson@familyupdates.net that seems to be impersonating my aunt Mary. My key for EmailRep is \"api_key\". How do I report this?",
+        "reference": "emailrep_report(email=\"mary.johnson@familyupdates.net\", key=\"api_key\")"
+    },
+    {
+        "query": "Hi, a user from the email cooltechguy@gadgets.com sent me an offer for a tech gadget that seems too good to be true. It smells like a scam. How do I report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"cooltechguy@gadgets.com\", key=\"api_key\")"
+    },
+    {
+        "query": "I got an unexpected email from updates@google.support claiming to be Google and requesting a password reset. Can you help me report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"updates@google.support\", key=\"api_key\")"
+    },
+    {
+        "query": "An email from john.doe@school.edu is circulating a document about an upcoming school event, but it doesn't look right to me. Could it be malicious? Can we report it to EmailRep? My key is \"api_key\".",
+        "reference": "emailrep_report(email=\"john.doe@school.edu\", key=\"api_key\")"
+    },
+    {
+        "query": "Good day, I am worried about an email that I got. It's from a person claiming to be an executive at my company, but I'm certain it's a fake. The address is executive.john@mycompany.info and he's asking for confidential business information. I believe this is a case of business email compromise. I have an EmailRep API key, it's \"api_key\". Can you guide me on how to report it?",
+        "reference": "emailrep_report(email=\"executive.john@mycompany.info\", key=\"api_key\")"
+    }
+]

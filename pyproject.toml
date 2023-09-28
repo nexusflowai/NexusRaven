@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "raven"
+description = "Nexusflow.ai NexusRaven repository"
+version = "1.0.0"
+authors = [
+    { name = "Nexusflow.ai", email = "admin@nexusflow.ai" }
+]
+dependencies = [
+    "datasets",
+    "langchain==0.0.294",
+]
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "pylint",
+]
+
+[tool.setuptools]
+packages = ["raven"]
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = "C0103,C0114,C0115,C0116,C0301,R0801,R0913,R0914,R1732,R1735,W0105,W0122,W0123,W0602,W0613,W1514,W3101"
+
+[tool.pylint.master]
+fail-under = 9.95
+ignore-patterns = "raven/data/resources/*"
