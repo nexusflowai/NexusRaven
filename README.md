@@ -127,8 +127,9 @@ We provide evaluation data and infrastructure for 5 datasets:
 ### NexusRaven
 1. Create a HF inference endpoint using https://huggingface.co/Nexusflow/NexusRaven-13B
    1. We ran ours on a `GPU xlarge` node consisting of 1x A100 40GB GPU
-   2. We use no quantization in the TGI endpoint (only using the HF default torch.bfloat16)
-   3. `Max Input Length` is set to 8192, `Max Number of Tokens` to 8193, and `Max Batch Prefill Tokens` to 8192
+   2. Under `Advanced configuration`:
+      1. We use no quantization in the TGI endpoint (only using the HF default torch.bfloat16)
+      2. `Max Input Length` is set to 8192, `Max Number of Tokens` to 8193, and `Max Batch Prefill Tokens` to 8192
 2. Copy the inference endpoint url and use it here
 
 ```bash
@@ -169,8 +170,9 @@ We provide evaluation data and infrastructure for 5 datasets:
 ### CodeLlama 13B Instruct
 1. Create a HF inference endpoint using https://huggingface.co/codellama/CodeLlama-13b-Instruct-hf
    1. We ran ours on a `GPU xlarge` node consisting of 1x A100 40GB GPU
-   2. We use no quantization in the TGI endpoint (only using the HF default torch.bfloat16)
-   3. `Max Input Length` is set to 8192, `Max Number of Tokens` to 8193, and `Max Batch Prefill Tokens` to 8192
+   2. Under `Advanced configuration`:
+      1. We use no quantization in the TGI endpoint (only using the HF default torch.bfloat16)
+      2. `Max Input Length` is set to 8192, `Max Number of Tokens` to 8193, and `Max Batch Prefill Tokens` to 8192
 2. Copy the inference endpoint url and use it here
 
 ```bash
