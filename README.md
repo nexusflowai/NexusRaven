@@ -30,6 +30,7 @@ Table of contents
     - [GPT-3.5 Instruct](#gpt-35-instruct)
     - [GPT-4](#gpt-4)
     - [ToolLLM](#toolllm)
+    - [ToolAlpaca](#toolalpaca)
     - [CodeLlama 13B Instruct](#codellama-13b-instruct)
   - [Future releases](#future-releases)
   - [NexusRaven model limitations](#nexusraven-model-limitations)
@@ -75,17 +76,17 @@ NexusRaven_API_evaluation [dataset](https://huggingface.co/datasets/Nexusflow/Ne
 ```bash
 # Upload raw queries
 python raven/data/upload_raw_queries.py \
-    --hf_path Nexusflow/NexusRaven_API_evaluation \
+    --hf_path {your hf path} \
     --subset raw_queries
 
 # Upload standardized api list
 python raven/data/upload_standardized_api_list.py \
-    --hf_path Nexusflow/NexusRaven_API_evaluation \
+    --hf_path {your hf path} \
     --subset standardized_api_list
 
 # Upload standardized queries
 python raven/data/upload_standardized_queries.py \
-    --hf_path Nexusflow/NexusRaven_API_evaluation \
+    --hf_path {your hf path} \
     --standardized_queries_subset standardized_queries \
     --raw_queries_subset raw_queries \
     --standardized_api_list_subset standardized_api_list
@@ -97,7 +98,7 @@ Getting generation responses from the ToolLLM model using this code requires acc
 ```bash
 # Upload queries and api list in ToolLLM format
 python raven/data/upload_queries_in_toolllm_format.py \
-    --hf_path Nexusflow/NexusRaven_API_evaluation \
+    --hf_path {your hf path} \
     --toolllm_queries_subset queries_in_toolllm_format \
     --toolllm_api_list_subset api_list_in_toolllm_format \
     --standardized_queries_subset standardized_queries \
@@ -105,7 +106,7 @@ python raven/data/upload_queries_in_toolllm_format.py \
 
 # Run ToolLLM evaluations
 python raven/eval/run_toolllm.py \
-    --hf_path Nexusflow/NexusRaven_API_evaluation \
+    --hf_path {your hf path} \
     --toolllm_queries_subset queries_in_toolllm_format \
     --toolllm_api_list_subset api_list_in_toolllm_format \
     --toolllm_outputs_subset outputs_in_toolllm_format
@@ -166,6 +167,15 @@ NexusRaven is especially capable at *single-turn zero-shot* function calling cap
 ./scripts/evaluate_toolllm.sh virustotal
 ./scripts/evaluate_toolllm.sh toolalpaca
 ./scripts/evaluate_toolllm.sh toolllm
+```
+
+### ToolAlpaca
+```bash
+./scripts/evaluate_toolalpaca.sh cve_cpe
+./scripts/evaluate_toolalpaca.sh emailrep
+./scripts/evaluate_toolalpaca.sh virustotal
+./scripts/evaluate_toolalpaca.sh toolalpaca
+./scripts/evaluate_toolalpaca.sh toolllm
 ```
 
 ### CodeLlama 13B Instruct
