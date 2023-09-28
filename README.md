@@ -131,6 +131,7 @@ We provide evaluation data and infrastructure for 5 datasets:
       1. We use no quantization in the TGI endpoint (only using the HF default torch.bfloat16)
       2. `Max Input Length` is set to 8192, `Max Number of Tokens` to 8193, and `Max Batch Prefill Tokens` to 8192
 2. Copy the inference endpoint url and use it here
+3. Make the inference endpoint public (LangChain currently does not support private inference endpoints)
 
 ```bash
 ./scripts/evaluate_nexusraven.sh emailrep {inference endpoint url}
@@ -174,6 +175,7 @@ We provide evaluation data and infrastructure for 5 datasets:
       1. We use no quantization in the TGI endpoint (only using the HF default torch.bfloat16)
       2. `Max Input Length` is set to 8192, `Max Number of Tokens` to 8193, and `Max Batch Prefill Tokens` to 8192
 2. Copy the inference endpoint url and use it here
+3. Make the inference endpoint public (LangChain currently does not support private inference endpoints)
 
 ```bash
 ./scripts/evaluate_codellamainstruct.sh emailrep
