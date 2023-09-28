@@ -121,6 +121,7 @@ We provide evaluation data and infrastructure for 5 datasets:
 - `emailrep`
 - `virustotal`
 - `toolalpaca`
+- `toolllm`
 
 
 ### NexusRaven

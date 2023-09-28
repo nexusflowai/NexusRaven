@@ -171,11 +171,8 @@ dataset = load_from_disk(path)
             lambda dataset: dataset == self.task_name,
             input_columns="dataset",
         )
-        """
-        TODO Temporarily disable evaluation on toolllm data
-        """
         assert (
-            self.task_name == "toolllm" or len(d) > 0
+            len(d) > 0
         ), f"Unknown task `{self.task_name}`. Available tasks: {list(dict.fromkeys(d['dataset']))}"
 
         return d
