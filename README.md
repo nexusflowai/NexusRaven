@@ -177,8 +177,8 @@ We provide evaluation data and infrastructure for 5 datasets:
 3. Make the inference endpoint public (LangChain currently does not support private inference endpoints)
 
 ```bash
-./scripts/evaluate_codellamainstruct.sh emailrep
-./scripts/evaluate_codellamainstruct.sh {dataset name}
+./scripts/evaluate_codellamainstruct.sh emailrep {inference endpoint url}
+./scripts/evaluate_codellamainstruct.sh {dataset name} {inference endpoint url}
 ```
 
 
