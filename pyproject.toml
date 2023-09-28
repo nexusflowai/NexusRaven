@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "raven"
+requires-python = ">=3.10.0"
 description = "Nexusflow.ai NexusRaven repository"
 version = "1.0.0"
 authors = [

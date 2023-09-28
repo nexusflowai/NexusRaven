@@ -32,7 +32,7 @@ Table of contents
     - [ToolLLM](#toolllm)
     - [CodeLlama 13B Instruct](#codellama-13b-instruct)
   - [Future releases](#future-releases)
-- [NexusRaven model limitations](#nexusraven-model-limitations)
+  - [NexusRaven model limitations](#nexusraven-model-limitations)
   - [License](#license)
   - [References](#references)
   - [Citation](#citation)
