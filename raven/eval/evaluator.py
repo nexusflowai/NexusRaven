@@ -148,14 +148,17 @@ class Evaluator:
         split = self.task_name
         save_path = os.path.join(CACHE_DIR, predictions_hf_path, subset, split)
         predictions_d.save_to_disk(save_path)
-        predictions_d.push_to_hub(
-            repo_id=predictions_hf_path,
-            config_name=subset,
-            split=split,
-        )
-
         print(
-            f"See the outputs at https://hf.co/datasets/{predictions_hf_path}/viewer/{subset}/{split}"
+            f"""
+You can inspect the predictions afterwards by using
+
+```
+from datasets import load_from_disk
+
+path = "{save_path}"
+dataset = load_from_disk(path)
+```
+"""
         )
 
     def get_eval_dataset(self) -> Dataset:
