@@ -77,6 +77,9 @@ NexusRaven_API_evaluation [dataset](https://huggingface.co/datasets/Nexusflow/Ne
 
 ### API evaluation dataset standardization
 ```bash
+# Process raw ToolAlpaca data
+python raven/data/process_toolalpaca_evaluation_data.py
+
 # Upload raw queries
 python raven/data/upload_raw_queries.py \
     --hf_path {your hf path} \

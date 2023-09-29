@@ -8,6 +8,8 @@ import requests
 
 from collections import defaultdict
 
+from datasets import Dataset
+
 from raven import ROOT_DIR
 
 
@@ -75,11 +77,24 @@ class ToolAlpacaDataPostprocessHelper:
                 if include:
                     eval_dataset[key].append(call)
 
+        # Check the length of each list in the dict
+        lengths = [len(v) for v in eval_dataset.values()]
+
+        # If they aren't all the same, find the max length and pad the shorter ones
+        if len(set(lengths)) > 1:
+            max_length = max(lengths)
+            for key, value in eval_dataset.items():
+                if len(value) < max_length:
+                    eval_dataset[key] = value + [{}] * (max_length - len(value))
+
+        # Now the lengths should be the same and Dataset.from_dict() should work
+        hf_dataset = Dataset.from_dict(eval_dataset)
+
         output_path = os.path.join(
             ROOT_DIR, "data", "resources", "toolalpaca_queries.json"
         )
         with open(output_path, "w") as f:
-            json.dump(eval_dataset, f, indent=4)
+            json.dump(list(hf_dataset.to_iterable_dataset()), f, indent=4)
 
     def construct_python_call(self, function_call: str, golden_call: str) -> str:
         # Step 1: Parsing function_call
@@ -153,9 +168,6 @@ class ToolAlpacaDataPostprocessHelper:
                         function_desc.split("\n")[0].replace("Parameters: ", "")
                     )
                 except:
-                    import ipdb
-
-                    ipdb.set_trace()
                     continue
             full_parameters = []
 
