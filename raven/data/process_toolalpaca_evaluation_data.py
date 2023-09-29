@@ -4,9 +4,9 @@ import json
 
 import re
 
-import requests
-
 from collections import defaultdict
+
+import requests
 
 from datasets import Dataset
 
@@ -161,13 +161,13 @@ class ToolAlpacaDataPostprocessHelper:
                 parameters = json.loads(
                     function_desc.split("\n")[1].replace("Parameters: ", "")
                 )
-            except:
+            except:  # pylint: disable=bare-except
                 # Try using normal
                 try:
                     parameters = json.loads(
                         function_desc.split("\n")[0].replace("Parameters: ", "")
                     )
-                except:
+                except:  # pylint: disable=bare-except
                     continue
             full_parameters = []
 

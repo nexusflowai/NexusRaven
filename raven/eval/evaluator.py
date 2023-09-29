@@ -2,8 +2,6 @@ from typing import Any, Callable, Dict, List
 
 from dataclasses import dataclass
 
-import os
-
 import json
 
 from os import environ
@@ -27,7 +25,6 @@ from langchain.agents import (
 )
 from langchain.chains import LLMChain
 
-from raven import CACHE_DIR
 from raven.utils import build_functions, parse_function_call_to_name_and_args
 from raven.eval.raven_utils import (
     RavenOutputParser,
