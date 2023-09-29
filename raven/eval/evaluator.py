@@ -65,27 +65,6 @@ class Evaluator:
         }
         agent = self.build_agent(llm, list(tools.values()))
 
-        """
-        Currently there's not really a good way of retrieving the actual prompt sent to the model
-        by LangChain (maybe through CallbackRunManager in the future?)
-        so here we monkeypatch the `LLMChain.prep_prompts` method and grab the output
-        """
-        prompts = []
-        if isinstance(agent, AgentExecutor):
-            print(
-                f"Monkeypatching `prep_prompts` to collect the final prompt sent by `{self.agent_name}` to `{self.llm_name}`"
-            )
-            original_prep_prompts = LLMChain.prep_prompts
-
-            def monkey_patched_prep_prompts(  # pylint: disable=redefined-outer-name
-                *args, **kwargs
-            ):
-                output = original_prep_prompts(*args, **kwargs)
-                prompts.append(output[0][0].to_string())
-                return output
-
-            LLMChain.prep_prompts = monkey_patched_prep_prompts
-
         eval_dataset = self.get_eval_dataset()
         accuracies = []
 
@@ -138,9 +117,8 @@ class Evaluator:
 
             accuracy_str = "CORRECT" if accuracy else "WRONG"
             error_message_str = "" if error_message is None else error_message
-            prompt_str = prompts[-1] if prompts else prompt
             print(
-                f"Example {i+1} / {len(eval_dataset)}\n\nPrompt\n\t{prompt_str}\n\nReference\n\t{reference_function_name}, {reference_args_dict}\n\nPrediction\n\t{predicted_function_name}, {predicted_args_dict}\n\n{accuracy_str}\n\n{error_message_str}{'-' * 80}\n"
+                f"Example {i+1} / {len(eval_dataset)}\n\nPrompt\n\t{prompt}\n\nReference\n\t{reference_function_name}, {reference_args_dict}\n\nPrediction\n\t{predicted_function_name}, {predicted_args_dict}\n\n{accuracy_str}\n\n{error_message_str}{'-' * 80}\n"
             )
 
             accuracies.append(accuracy)
