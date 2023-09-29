@@ -87,8 +87,6 @@ class Evaluator:
             LLMChain.prep_prompts = monkey_patched_prep_prompts
 
         eval_dataset = self.get_eval_dataset()
-        predictions = []
-        references = []
         accuracies = []
 
         for i, sample in enumerate(eval_dataset):
@@ -145,41 +143,10 @@ class Evaluator:
                 f"Example {i+1} / {len(eval_dataset)}\n\nPrompt\n\t{prompt_str}\n\nReference\n\t{reference_function_name}, {reference_args_dict}\n\nPrediction\n\t{predicted_function_name}, {predicted_args_dict}\n\n{accuracy_str}\n\n{error_message_str}{'-' * 80}\n"
             )
 
-            if error_message is not None:
-                predictions.append(error_message)
-            else:
-                predictions.append(output)
-            references.append((reference_function_name, reference_args_dict))
             accuracies.append(accuracy)
 
         accuracy = 100 * sum(accuracies) / len(eval_dataset)
         print(f"Accuracy: {accuracy:.3f}%")
-
-        predictions_d = Dataset.from_dict(
-            {
-                "prompt": prompts or eval_dataset["prompt"],
-                "prediction": list(map(json.dumps, predictions)),
-                "reference": list(map(json.dumps, references)),
-                "correct": accuracies,
-            }
-        )
-        subset = f"{self.llm_name}---{self.agent_name}"
-        predictions_hf_path = f"{self.hf_path}_predictions"
-        split = self.task_name
-        save_path = os.path.join(CACHE_DIR, predictions_hf_path, subset, split)
-        predictions_d.save_to_disk(save_path)
-        print(
-            f"""
-You can inspect the predictions afterwards by using
-
-```
-from datasets import load_from_disk
-
-path = "{save_path}"
-dataset = load_from_disk(path)
-```
-"""
-        )
 
     def get_eval_dataset(self) -> Dataset:
         if self.task_name == "toolllm":
