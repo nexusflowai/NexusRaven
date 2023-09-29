@@ -62,6 +62,7 @@ pip install -e .
 ```
 
 ## NexusRaven model usage
+
 NexusRaven accepts a list of python functions. These python functions can do anything (including sending GET/POST requests to external APIs!). The two requirements include the python function signature and the appropriate docstring to generate the function call. 
 
 NexusRaven is highly compatible with langchain. See [scripts/langchain_example.py](scripts/langchain_example.py). An example without langchain can be found in [scripts/non_langchain_example.py](scripts/non_langchain_example.py)
@@ -70,6 +71,66 @@ Please note that the model will reflect on the answer sometimes, so we highly re
 
 The "Initial Answer" can be executed to run the function.
 
+### Example
+
+The model is finetuned so it expects a very structured prompt. To get the best use out of the model, please ensure to follow the prompt. Here's an example:
+
+```python
+PROMPT = \
+"""
+<human>:
+OPTION:
+<func_start>def hello_world(n : int)<func_end>
+<docstring_start>
+\"\"\"
+Prints hello world to the user.
+
+Args:
+n (int) : Number of times to print hello world.
+\"\"\"
+<docstring_end>
+
+OPTION:
+<func_start>def hello_universe(n : int)<func_end>
+<docstring_start>
+\"\"\"
+Prints hello universe to the user.
+
+Args:
+n (int) : Number of times to print hello universe.
+\"\"\"
+<docstring_end>
+
+User Query: Question: Please print hello world 10 times. 
+
+Please pick a function from the above options that best answers the user query and fill in the appropriate arguments.<human_end>"""
+```
+
+Please follow this example (including the <human>, OPTION, <func_start>, <func_end>, <docstring_start>, <docstring_end>) tags in your prompt. 
+
+You can run the model by doing this:
+
+```python
+model = "Nexusflow/NexusRaven-13B"
+
+tokenizer = AutoTokenizer.from_pretrained(model)
+pipeline = transformers.pipeline(
+    "text-generation",
+    model=model,
+    tokenizer=tokenizer, 
+    device="cuda")
+
+result = pipeline(PROMPT, max_length=400, return_full_text=False, do_sample=False)[0]["generated_text"]
+
+# Get the "Initial Call" only
+function_call = result.strip().split("\n")[1].replace("Initial Answer: ", "").strip()
+print (f"Generated Call: {function_call}")
+```
+This will output: 
+```text
+Generated Call: hello_world(10) 
+```
+Which can be executed. 
 
 ## Evaluation dataset curation
 The instructions below can be used to reproduce our evaluation set, found at
