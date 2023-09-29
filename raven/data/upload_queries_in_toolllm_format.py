@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 from dataclasses import dataclass
 
@@ -32,6 +32,8 @@ class ToolLLMFormatQueriesHelper:
         queries = load_dataset(
             self.hf_path, name=self.standardized_queries_subset, split="train"
         )
+
+        api_list, queries = self.concatenate_toolllm(api_list, queries)
 
         python_functions = list(
             map(self.convert_to_python_function, api_list.to_iterable_dataset())
@@ -70,6 +72,37 @@ class ToolLLMFormatQueriesHelper:
             repo_id=self.hf_path,
             config_name=self.toolllm_api_list_subset,
         )
+
+    def concatenate_toolllm(
+        self, api_list: Dataset, queries: Dataset
+    ) -> Tuple[Dataset, Dataset]:
+        """
+        ToolLLM data is not yet fully integrated into this repository, so here we take a chunk from the
+        Nexusflow/NexusRaven_API_evaluation dataset
+        """
+        toolllm_api_list = load_dataset(
+            path="Nexusflow/NexusRaven_API_evaluation",
+            name="standardized_api_list_subset",
+            split="train",
+        )
+        toolllm_api_list = toolllm_api_list.filter(
+            lambda s: s == "toolllm", input_columns="dataset"
+        )
+        api_list = api_list.filter(lambda s: s != "toolllm", input_columns="dataset")
+        api_list = concatenate_datasets([api_list, toolllm_api_list])
+
+        toolllm_queries = load_dataset(
+            path="Nexusflow/NexusRaven_API_evaluation",
+            name="standardized_api_list_subset",
+            split="train",
+        )
+        toolllm_queries = toolllm_queries.filter(
+            lambda s: s == "toolllm", input_columns="dataset"
+        )
+        queries = queries.filter(lambda s: s != "toolllm", input_columns="dataset")
+        queries = concatenate_datasets([queries, toolllm_queries])
+
+        return api_list, queries
 
     def convert_to_python_function(self, api_dict: Dict[str, Any]) -> Dict[str, str]:
         name = api_dict["name"]
