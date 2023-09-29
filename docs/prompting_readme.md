@@ -73,8 +73,7 @@ Please start your prompt with ```<human>```.
 
 To prompt the model in zeroshot, please do something this like:
 ```python
-PROMPT = \
-"""
+prompt_template = """
 <human>:
 OPTION:
 <func_start>def hello_world(n : int)<func_end>
@@ -98,36 +97,43 @@ n (int) : Number of times to print hello universe.
 \"\"\"
 <docstring_end>
 
-User Query: Question: Please print hello world 10 times. 
+User Query: Question: {question}
 
-Please pick a function from the above options that best answers the user query and fill in the appropriate arguments.<human_end>"""
+Please pick a function from the above options that best answers the user query and fill in the appropriate arguments.<human_end>
+"""
+prompt = prompt_template.format(question="Please print hello world 10 times.")
 ```
 
 You're welcome to add an arbitrary number of functions in the same format. Using this driver code:
 ```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
-import transformers
-import torch
+# Please `pip install transformers accelerate`
+from transformers import pipeline
 
-model = "Nexusflow/NexusRaven-13B"
 
-tokenizer = AutoTokenizer.from_pretrained(model)
-pipeline = transformers.pipeline(
+pipeline = pipeline(
     "text-generation",
-    model=model,
-    tokenizer=tokenizer, 
-    device="cuda")
+    model="Nexusflow/NexusRaven-13B",
+    torch_dtype="auto",
+    device_map="auto",
+)
 
-result = pipeline(PROMPT, max_length=400, return_full_text=False, do_sample=False)[0]["generated_text"]
+result = pipeline(prompt, max_new_tokens=100, return_full_text=False, do_sample=False)[0]["generated_text"]
 
 # Get the "Initial Call" only
-function_call = result.strip().split("\n")[1].replace("Initial Answer: ", "").strip()
+start_str = "Initial Answer: "
+end_str = "\nReflection: "
+start_idx = result.find(start_str) + len(start_str)
+end_idx = result.find(end_str)
+function_call = result[start_idx: end_idx]
+
 print (f"Generated Call: {function_call}")
 ```
 The call will print out:
 ```text
 Generated Call: hello_world(10)
-````
+```
+
+
 To prompt the model in fewshot, please do something this like:
 
 ```python
