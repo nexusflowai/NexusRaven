@@ -12,6 +12,7 @@ import re
 
 from datasets import Dataset, concatenate_datasets, load_dataset
 
+from raven import ROOT_DIR
 from raven.utils import build_functions
 
 
@@ -73,9 +74,8 @@ class UploadStandardizedAPIListHelper:
         return {"args_dicts": ds}
 
     def cve_cpe(self) -> Dataset:
-        p = os.path.split(__file__)[0]
         function_definitions_path = os.path.join(
-            p, "resources", "cve_cpe_function_definitions.py"
+            ROOT_DIR, "data", "resources", "cve_cpe_function_definitions.py"
         )
         with open(function_definitions_path) as f:
             content = f.read()
@@ -183,9 +183,8 @@ key (string, required): The API key of the user.
         since the existing VirusTotal Python client does not provide function definitions https://github.com/VirusTotal/vt-py/. vt-py just calls into the overall VirusTotal http endpoint
 
         """
-        p = os.path.split(__file__)[0]
         function_definitions_path = os.path.join(
-            p, "resources", "virustotal_function_definitions.py"
+            ROOT_DIR, "data", "resources", "virustotal_function_definitions.py"
         )
         with open(function_definitions_path) as f:
             content = f.read()
@@ -224,7 +223,8 @@ key (string, required): The API key of the user.
         return Dataset.from_list(function_dicts)
 
     def toolalpaca(self) -> Dataset:
-        d = load_dataset("Nexusflow/toolalpaca_simulated", split="train")
+        d_path = os.path.join(ROOT_DIR, "data", "resources", "toolalpaca_queries.json")
+        d = load_dataset("json", data_files=d_path, split="train")
         all_docstrings: List[str] = [_d["docstring"] for _d in d["turns_1"]]
 
         func_pattern = re.compile("<func_start>(.*?)<func_end>", re.S)
