@@ -1,0 +1,606 @@
+[
+    {
+        "query": "Can you help me get a report of domain cloudflare.com on VirusTotal? My key is my_api.",
+        "reference": "vt_get_domain_report(domain = \"cloudflare.com\", x_apikey = \"my_api\")"
+    },
+    {
+        "query": "Can I get data on the domain google.com from VirusTotal? I'm using the API key called user_key123.",
+        "reference": "vt_get_domain_report(domain = \"google.com\", x_apikey = \"user_key123\")"
+    },
+    {
+        "query": "How do I fetch information about yahoo.com on VirusTotal with the API? My access key is VT_key987.",
+        "reference": "vt_get_domain_report(domain = \"yahoo.com\", x_apikey = \"VT_key987\")"
+    },
+    {
+        "query": "I'd like to retrieve the report for bing.com from VirusTotal. Use the key api_key456.",
+        "reference": "vt_get_domain_report(domain = \"bing.com\", x_apikey = \"api_key456\")"
+    },
+    {
+        "query": "Could you fetch domain details for example.com on VirusTotal for me? I have this API key: example_key789.",
+        "reference": "vt_get_domain_report(domain = \"example.com\", x_apikey = \"example_key789\")"
+    },
+    {
+        "query": "I'm interested in the VirusTotal report of the domain microsoft.com. My access token is MS_key321.",
+        "reference": "vt_get_domain_report(domain = \"microsoft.com\", x_apikey = \"MS_key321\")"
+    },
+    {
+        "query": "Please pull the VirusTotal domain info for apple.com. The API key I have is apple_vt_key.",
+        "reference": "vt_get_domain_report(domain = \"apple.com\", x_apikey = \"apple_vt_key\")"
+    },
+    {
+        "query": "I need details from VirusTotal for the domain reddit.com. My given API key is reddit_api_key.",
+        "reference": "vt_get_domain_report(domain = \"reddit.com\", x_apikey = \"reddit_api_key\")"
+    },
+    {
+        "query": "Can you fetch the domain report of amazon.com on VirusTotal? I'll provide my API key: amazon_key123.",
+        "reference": "vt_get_domain_report(domain = \"amazon.com\", x_apikey = \"amazon_key123\")"
+    },
+    {
+        "query": "I want the VirusTotal data for domain netflix.com. Here's my access key: netflix_vt_key.",
+        "reference": "vt_get_domain_report(domain = \"netflix.com\", x_apikey = \"netflix_vt_key\")"
+    },
+    {
+        "query": "How do I pull the domain info of twitter.com from VirusTotal? Using this API key: twt_key_abc.",
+        "reference": "vt_get_domain_report(domain = \"twitter.com\", x_apikey = \"twt_key_abc\")"
+    },
+    {
+        "query": "Could you show me the way to get the report of domain youtube.com on VirusTotal? I have an API key: yt_key_xyz.",
+        "reference": "vt_get_domain_report(domain = \"youtube.com\", x_apikey = \"yt_key_xyz\")"
+    },
+    {
+        "query": "Can you help me get comments on a domain youtube.com on VirusTotal? My key is my_api. Set the limit to 10 and the continuation cursor to abc.",
+        "reference": "vt_get_comments_on_domain(domain = \"youtube.com\", x_apikey = \"my_api\", limit = 10, cursor = \"abc\")"
+    },
+    {
+        "query": "I need to retrieve comments for domain example.com using the API key 'api12345'.",
+        "reference": "vt_get_comments_on_domain(domain = \"example.com\", x_apikey = \"api12345\")"
+    },
+    {
+        "query": "Could you help fetch comments for website google.com? I want to use the key 'secret_key' and set the limit to 5.",
+        "reference": "vt_get_comments_on_domain(domain = \"google.com\", x_apikey = \"secret_key\", limit = 5)"
+    },
+    {
+        "query": "Please get the next batch of comments from facebook.com. My key is 'alpha_key'. Continue from cursor 'xyz123'.",
+        "reference": "vt_get_comments_on_domain(domain = \"facebook.com\", x_apikey = \"alpha_key\", cursor = \"xyz123\")"
+    },
+    {
+        "query": "For domain reddit.com, I'd like to get 7 comments. My API key is 'beta_key'. Also, continue fetching from cursor 'cursor789'.",
+        "reference": "vt_get_comments_on_domain(domain = \"reddit.com\", x_apikey = \"beta_key\", limit = 7, cursor = \"cursor789\")"
+    },
+    {
+        "query": "How can I view comments of domain microsoft.com with my key 'gamma_key' and a limit of 20?",
+        "reference": "vt_get_comments_on_domain(domain = \"microsoft.com\", x_apikey = \"gamma_key\", limit = 20)"
+    },
+    {
+        "query": "Using my 'delta_key', how can I get comments for the domain apple.com?",
+        "reference": "vt_get_comments_on_domain(domain = \"apple.com\", x_apikey = \"delta_key\")"
+    },
+    {
+        "query": "For the website netflix.com, can I fetch 15 comments with the 'epsilon_key'?",
+        "reference": "vt_get_comments_on_domain(domain = \"netflix.com\", x_apikey = \"epsilon_key\", limit = 15)"
+    },
+    {
+        "query": "I wish to see comments of domain amazon.com. Kindly use my key 'zeta_key' and continue from the 'lmn456' cursor.",
+        "reference": "vt_get_comments_on_domain(domain = \"amazon.com\", x_apikey = \"zeta_key\", cursor = \"lmn456\")"
+    },
+    {
+        "query": "Can I get the next 10 comments for twitter.com? Use the 'eta_key' and start from cursor 'rst890'.",
+        "reference": "vt_get_comments_on_domain(domain = \"twitter.com\", x_apikey = \"eta_key\", limit = 10, cursor = \"rst890\")"
+    },
+    {
+        "query": "Using 'theta_key', fetch comments for domain instagram.com. Also, set a limit of 25.",
+        "reference": "vt_get_comments_on_domain(domain = \"instagram.com\", x_apikey = \"theta_key\", limit = 25)"
+    },
+    {
+        "query": "Can you help me Get objects related to a domain apple.com on VirusTotal? The relationship I want to check is subdomains. My key is my_api. Set the limit to 10 and the continuation cursor to abc.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"apple.com\", relationship = \"subdomains\", x_apikey = \"my_api\", limit = 10, cursor = \"abc\")"
+    },
+    {
+        "query": "Can you show me DNS resolutions for yahoo.com from VirusTotal? I'll use the API key api_key123.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"yahoo.com\", relationship = \"resolutions\", x_apikey = \"api_key123\")"
+    },
+    {
+        "query": "I'm interested in comments related to google.com on VirusTotal. Also, I want a maximum of 5 comments. My API key is secret_key456.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"google.com\", relationship = \"comments\", x_apikey = \"secret_key456\", limit = 5)"
+    },
+    {
+        "query": "Using the key vt_key789, retrieve files communicating with the domain microsoft.com from VirusTotal.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"microsoft.com\", relationship = \"communicating_files\", x_apikey = \"vt_key789\")"
+    },
+    {
+        "query": "On VirusTotal, what are the sibling domains related to amazon.com? Use the continuation cursor 'next123' and the API key magic_key001.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"amazon.com\", relationship = \"siblings\", x_apikey = \"magic_key001\", cursor = \"next123\")"
+    },
+    {
+        "query": "Fetch me the list of URLs having the domain facebook.com. I don't want more than 10 URLs. API key for this is fb_key002.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"facebook.com\", relationship = \"urls\", x_apikey = \"fb_key002\", limit = 10)"
+    },
+    {
+        "query": "I'm eager to know the top parent domain of twitter.com using VirusTotal. The access key for this operation is tw_key003.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"twitter.com\", relationship = \"parent\", x_apikey = \"tw_key003\")"
+    },
+    {
+        "query": "From VirusTotal, can you help me find files that contain the domain linkedin.com? Remember, my key is li_key004.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"linkedin.com\", relationship = \"referrer_files\", x_apikey = \"li_key004\")"
+    },
+    {
+        "query": "I want to check the SSL certificates history associated with the domain reddit.com. I have the API key rd_key005.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"reddit.com\", relationship = \"historical_ssl_certificates\", x_apikey = \"rd_key005\")"
+    },
+    {
+        "query": "Can you provide me with the WHOIS historical data for domain adobe.com on VirusTotal? I'll use the API key adobe_key123.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"adobe.com\", relationship = \"historical_whois\", x_apikey = \"adobe_key123\")"
+    },
+    {
+        "query": "I'd love to see any threat actors associated with the domain dropbox.com on VirusTotal. My access key for this request is db_key456.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"dropbox.com\", relationship = \"related_threat_actors\", x_apikey = \"db_key456\")"
+    },
+    {
+        "query": "Could you help me get files downloaded from the domain netflix.com using VirusTotal? I have the key nf_key789 for this.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"netflix.com\", relationship = \"downloaded_files\", x_apikey = \"nf_key789\")"
+    },
+    {
+        "query": "I'm interested in the CAA records related to the domain instagram.com on VirusTotal. My authorization key is ig_key001.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"instagram.com\", relationship = \"caa_records\", x_apikey = \"ig_key001\")"
+    },
+    {
+        "query": "Show me the community comments about domain spotify.com on VirusTotal. For this task, use the key sp_key002 and fetch no more than 7 comments.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"spotify.com\", relationship = \"comments\", x_apikey = \"sp_key002\", limit = 7)"
+    },
+    {
+        "query": "On VirusTotal, could you show me the subdomains of domain paypal.com? Set the limit to 25 and use the continuation cursor 'pp_next'. My API key is pp_key123.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"paypal.com\", relationship = \"subdomains\", x_apikey = \"pp_key123\", limit = 25, cursor = \"pp_next\")"
+    },
+    {
+        "query": "I want to see community posted comments about slack.com from VirusTotal. Get me the next 30 comments using cursor 'slack_c2'. My key is sl_key456.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"slack.com\", relationship = \"comments\", x_apikey = \"sl_key456\", limit = 30, cursor = \"slack_c2\")"
+    },
+    {
+        "query": "Using VirusTotal, can you find me files that contain the domain airbnb.com? I'd like to see up to 50 files from cursor point 'ab_next'. My authorization key is ab_key789.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"airbnb.com\", relationship = \"referrer_files\", x_apikey = \"ab_key789\", limit = 50, cursor = \"ab_next\")"
+    },
+    {
+        "query": "For the domain trello.com on VirusTotal, I'm keen to know the URLs associated with it. Retrieve a maximum of 20 URLs starting from cursor 'tr_cursor1'. I'll use the API key tr_key001.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"trello.com\", relationship = \"urls\", x_apikey = \"tr_key001\", limit = 20, cursor = \"tr_cursor1\")"
+    },
+    {
+        "query": "How about fetching me the sibling domains for domain pinterest.com on VirusTotal? Get me the next 10 using the cursor 'pin_cur3'. My key for this is pin_key002.",
+        "reference": "vt_get_objects_related_to_domain(domain = \"pinterest.com\", relationship = \"siblings\", x_apikey = \"pin_key002\", limit = 10, cursor = \"pin_cur3\")"
+    },
+    {
+        "query": "Can you help me Get object descriptors related to a domain example.org on VirusTotal? The relationship I want to check is subdomains. You should just return the related object's IDs (and context attributes, if any) instead of returning all attributes. My key is my_api. Set the limit to 10 and the continuation cursor to abc.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"example.org\", relationship = \"subdomains\", x_apikey = \"my_api\", limit = 10, cursor = \"abc\")"
+    },
+    {
+        "query": "How can I obtain the CNAME records for the domain 'sample.com' using the VirusTotal API? You should only return the related object's IDs. My key is 'secret123'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"sample.org\", relationship = \"cname_records\", x_apikey = \"secret123\")"
+    },
+    {
+        "query": "I'm looking to retrieve the IDs (and context attributes, if any) of files that communicate with domain 'example.net'. Limit the results to 20. My API key is 'apikey_456'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"example.net\", relationship = \"communicating_files\", x_apikey = \"apikey_456\", limit = 20)"
+    },
+    {
+        "query": "Please show me the IDs (and context attributes, if any) of comments related to 'test.org'. Also, if there's a continuation cursor, set it to 'cur123'. I have the API key 'mykey789'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"test.org\", relationship = \"comments\", x_apikey = \"mykey789\", cursor = \"cur123\")"
+    },
+    {
+        "query": "What are the DNS resolutions for 'site.info'? Get object descriptors instead of returning all attributes. Use the key 'apikey_info'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"site.info\", relationship = \"resolutions\", x_apikey = \"apikey_info\")"
+    },
+    {
+        "query": "Fetch me the historical WHOIS information for 'domain.xyz'. Only get object descriptors instead of returning all attributes. My access key is 'key_abc'. Can you limit the results to 5?",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"domain.xyz\", relationship = \"historical_whois\", x_apikey = \"key_abc\", limit = 5)"
+    },
+    {
+        "query": "I'd like to see the IDs of sibling domains of 'brother.com' with a continuation cursor of 'next100'. My API key is 'sibling_key'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"brother.com\", relationship = \"siblings\", x_apikey = \"sibling_key\", cursor = \"next100\")"
+    },
+    {
+        "query": "Show me the object descriptors of URLs associated with the domain 'linked.net'. Please use the API key 'linker_api'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"linked.net\", relationship = \"urls\", x_apikey = \"linker_api\")"
+    },
+    {
+        "query": "How do I retrieve files downloaded from the domain 'downloads.com' using my API key 'dload_key'? I Only need IDs (and context attributes, if any).",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"downloads.com\", relationship = \"downloaded_files\", x_apikey = \"dload_key\")"
+    },
+    {
+        "query": "Could you tell me how to obtain just the IDs and context attributes, and not all the details, of the CAA records for 'sample2.com'? I'll be using my API key 'secret567'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"sample2.com\", relationship = \"caa_records\", x_apikey = \"secret567\")"
+    },
+    {
+        "query": "I want to fetch files communicating with 'example3.net'. I only need the related object's IDs and their context. Please limit it to 25 and use my API key 'key789'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"example3.net\", relationship = \"communicating_files\", x_apikey = \"key789\", limit = 25)"
+    },
+    {
+        "query": "For the domain 'test4.org', how can I retrieve only the IDs and context attributes of community comments? Use the continuation cursor 'cur456' and my API key 'key123'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"test4.org\", relationship = \"comments\", x_apikey = \"key123\", cursor = \"cur456\")"
+    },
+    {
+        "query": "I need just the basic identifiers and any contextual info for the DNS resolutions of 'site5.info'. Use my access key 'apikey_abc'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"site5.info\", relationship = \"resolutions\", x_apikey = \"apikey_abc\")"
+    },
+    {
+        "query": "Can you show me how to get only the object IDs and their contexts for historical WHOIS details of 'domain6.xyz'? Let's cap the results at 8 and use 'key_def'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"domain6.xyz\", relationship = \"historical_whois\", x_apikey = \"key_def\", limit = 8)"
+    },
+    {
+        "query": "For 'sister.com', I'd like the sibling domains but only require their IDs and context. Use 'next50' as the continuation cursor and my API key 'sister_key'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"sister.com\", relationship = \"siblings\", x_apikey = \"sister_key\", cursor = \"next50\")"
+    },
+    {
+        "query": "I'm keen on seeing the URLs tied with 'linked7.net'. However, I only want the object IDs and any related context. My API key for this is 'linker_api2'.",
+        "reference": "vt_get_object_descriptors_related_to_domain(domain = \"linked7.net\", relationship = \"urls\", x_apikey = \"linker_api2\")"
+    },
+    {
+        "query": "Can you help me Get a DNS resolution object on VirusTotal? The id I want to check is 111.222.33.44example.com. My key is my_api.",
+        "reference": "vt_get_dns_resolution_object(id = \"111.222.33.44example.com\", x_apikey = \"my_api\")"
+    },
+    {
+        "query": "Can you retrieve the DNS resolution for the domain paired with IP 123.456.78.90 on VirusTotal? I'll provide the API key as 'sample_key1'.",
+        "reference": "vt_get_dns_resolution_object(id = \"123.456.78.90domain.com\", x_apikey = \"sample_key1\")"
+    },
+    {
+        "query": "I need details from VirusTotal for the DNS object with ID 192.168.0.1website.net. My API access key is 'sample_key2'.",
+        "reference": "vt_get_dns_resolution_object(id = \"192.168.0.1website.net\", x_apikey = \"sample_key2\")"
+    },
+    {
+        "query": "For the domain associated with IP 10.0.0.1 on VirusTotal, can you get its resolution details? Use the key 'sample_key3'.",
+        "reference": "vt_get_dns_resolution_object(id = \"10.0.0.1\", x_apikey = \"sample_key3\")"
+    },
+    {
+        "query": "I'd appreciate if you could fetch the DNS resolution info for the domain mapped to IP 255.255.255.0 from VirusTotal. My key for this operation is 'sample_key4'.",
+        "reference": "vt_get_dns_resolution_object(id = \"255.255.255.0\", x_apikey = \"sample_key4\")"
+    },
+    {
+        "query": "Looking to get data on the DNS resolution of the domain related to IP 172.16.0.2 via VirusTotal. Please proceed with the key 'sample_key5'.",
+        "reference": "vt_get_dns_resolution_object(id = \"172.16.0.2\", x_apikey = \"sample_key5\")"
+    },
+    {
+        "query": "I'm interested in the DNS resolution details for the domain that correlates with IP 203.0.113.0 on VirusTotal. My authentication key is 'sample_key6'.",
+        "reference": "vt_get_dns_resolution_object(id = \"203.0.113.0\", x_apikey = \"sample_key6\")"
+    },
+    {
+        "query": "Could you fetch the resolution data for the domain linked to IP 198.51.100.1 from VirusTotal? The API key I possess is 'sample_key7'.",
+        "reference": "vt_get_dns_resolution_object(id = \"198.51.100.1\", x_apikey = \"sample_key7\")"
+    },
+    {
+        "query": "I want the DNS resolution information of the domain associated with 192.0.2.1 on VirusTotal. Please use the key 'sample_key8'.",
+        "reference": "vt_get_dns_resolution_object(id = \"192.0.2.1\", x_apikey = \"sample_key8\")"
+    },
+    {
+        "query": "Provide me with the details for the DNS object ID 10.10.10.10linked.site on VirusTotal. For this request, use the key 'sample_key9'.",
+        "reference": "vt_get_dns_resolution_object(id = \"10.10.10.10linked.site\", x_apikey = \"sample_key9\")"
+    },
+    {
+        "query": "For the VirusTotal DNS resolution of the domain tied to IP 44.55.66.77, can you help? The access key for this is 'sample_key10'.",
+        "reference": "vt_get_dns_resolution_object(id = \"44.55.66.77\", x_apikey = \"sample_key10\")"
+    },
+    {
+        "query": "Can you help me get a report of this IP address on VirusTotal? http://www.example.org. My key is API_KEY.",
+        "reference": "vt_get_ip_address_report(ip = \"http://www.example.org\", x_apikey = \"API_KEY\")"
+    },
+    {
+        "query": "I would like to check the IP address 192.168.0.1 on VirusTotal using my API key, KEY123",
+        "reference": "vt_get_ip_address_report(ip = \"192.168.0.1\", x_apikey = \"KEY123\")"
+    },
+    {
+        "query": "Please fetch a report for the IP address 172.16.254.1 from VirusTotal. Use this API key: DEF456",
+        "reference": "vt_get_ip_address_report(ip = \"172.16.254.1\", x_apikey = \"DEF456\")"
+    },
+    {
+        "query": "Can we have the VirusTotal report for 10.0.0.1? My API key is XYZ789",
+        "reference": "vt_get_ip_address_report(ip = \"10.0.0.1\", x_apikey = \"XYZ789\")"
+    },
+    {
+        "query": "I need a VirusTotal report for the IP address 192.168.1.1. My key is ABC321",
+        "reference": "vt_get_ip_address_report(ip = \"192.168.1.1\", x_apikey = \"ABC321\")"
+    },
+    {
+        "query": "Could you retrieve the VirusTotal report for the IP 203.0.113.0? Please use my API key GHI654",
+        "reference": "vt_get_ip_address_report(ip = \"203.0.113.0\", x_apikey = \"GHI654\")"
+    },
+    {
+        "query": "Can you use my API key, ZYX987, to get a VirusTotal report for the IP address 192.0.2.0?",
+        "reference": "vt_get_ip_address_report(ip = \"192.0.2.0\", x_apikey = \"ZYX987\")"
+    },
+    {
+        "query": "Please use VirusTotal to generate a report for the IP 198.51.100.0 with my API key, WXY864",
+        "reference": "vt_get_ip_address_report(ip = \"198.51.100.0\", x_apikey = \"WXY864\")"
+    },
+    {
+        "query": "Could you help me fetch a VirusTotal report for the IP address 203.0.113.0? My API key is UVW741",
+        "reference": "vt_get_ip_address_report(ip = \"203.0.113.0\", x_apikey = \"UVW741\")"
+    },
+    {
+        "query": "Please retrieve a report from VirusTotal for the IP address 172.16.0.0 using my API key, TUV618",
+        "reference": "vt_get_ip_address_report(ip = \"172.16.0.0\", x_apikey = \"TUV618\")"
+    },
+    {
+        "query": "Can I get a VirusTotal report for 10.10.0.0 using my API key RST495?",
+        "reference": "vt_get_ip_address_report(ip = \"10.10.0.0\", x_apikey = \"RST495\")"
+    },
+    {
+        "query": "Can you help me get comments on this IP address on VirusTotal? https://www.example.org. Set the limit to 10 and the continuation cursor to abc. My key is API_KEY.",
+        "reference": "vt_get_comments_on_ip_address(ip = \"https://www.example.org\", x_apikey = \"API_KEY\", limit = 10, cursor = \"abc\")"
+    },
+    {
+        "query": "Could you get comments for IP address 192.168.0.1 on VirusTotal with the limit of 20 and the cursor set to bcd? My API key is KEY123",
+        "reference": "vt_get_comments_on_ip_address(ip = \"192.168.0.1\", x_apikey = \"KEY123\", limit = 20, cursor = \"bcd\")"
+    },
+    {
+        "query": "I want to fetch comments for the IP address 172.16.254.1 from VirusTotal. Set the limit to 15 and cursor to efg. Here is my API key: DEF456",
+        "reference": "vt_get_comments_on_ip_address(ip = \"172.16.254.1\", x_apikey = \"DEF456\", limit = 15, cursor = \"efg\")"
+    },
+    {
+        "query": "Can we have comments for 10.0.0.1 from VirusTotal? Please limit the number of comments to 5 and set the cursor to hij. My API key is XYZ789",
+        "reference": "vt_get_comments_on_ip_address(ip = \"10.0.0.1\", x_apikey = \"XYZ789\", limit = 5, cursor = \"hij\")"
+    },
+    {
+        "query": "Retrieve VirusTotal comments for the IP address 192.168.1.1. Set the limit to 30 and cursor to klm. My API key is ABC321",
+        "reference": "vt_get_comments_on_ip_address(ip = \"192.168.1.1\", x_apikey = \"ABC321\", limit = 30, cursor = \"klm\")"
+    },
+    {
+        "query": "Fetch the comments for IP 203.0.113.0 from VirusTotal. Set the limit to 25 and the cursor to nop. Use my API key GHI654",
+        "reference": "vt_get_comments_on_ip_address(ip = \"203.0.113.0\", x_apikey = \"GHI654\", limit = 25, cursor = \"nop\")"
+    },
+    {
+        "query": "I want to fetch comments for the IP address 192.168.0.1 from VirusTotal. My API key is KEY123.",
+        "reference": "vt_get_comments_on_ip_address(ip = \"192.168.0.1\", x_apikey = \"KEY123\")"
+    },
+    {
+        "query": "Please get comments for IP address 172.16.254.1 on VirusTotal with the limit of 15. Use my API key DEF456.",
+        "reference": "vt_get_comments_on_ip_address(ip = \"172.16.254.1\", x_apikey = \"DEF456\", limit = 15)"
+    },
+    {
+        "query": "Can you help me retrieve comments from VirusTotal for the IP 10.0.0.1, continue from cursor 'hij'? My API key is XYZ789",
+        "reference": "vt_get_comments_on_ip_address(ip = \"10.0.0.1\", x_apikey = \"XYZ789\", cursor = \"hij\")"
+    },
+    {
+        "query": "Fetch comments for IP 192.168.1.1 from VirusTotal, limit them to 30. My key is ABC321.",
+        "reference": "vt_get_comments_on_ip_address(ip = \"192.168.1.1\", x_apikey = \"ABC321\", limit = 30)"
+    },
+    {
+        "query": "I need the comments from VirusTotal for the IP 203.0.113.0, continuing from cursor 'nop'. Use my API key GHI654",
+        "reference": "vt_get_comments_on_ip_address(ip = \"203.0.113.0\", x_apikey = \"GHI654\", cursor = \"nop\")"
+    },
+    {
+        "query": "Can you help me add this comment to IP address 12.234.56.126 on VirusTotal? My key is my_api. The json of comments is here: {\"type\": \"comment\", \"attributes\": {\"text\": \"Lorem ipsum dolor sit...\"}}",
+        "reference": "vt_add_comment_to_ip_address(ip = \"12.234.56.126\", data = {\"type\": \"comment\", \"attributes\": {\"text\": \"Lorem ipsum dolor sit...\"}}, x_apikey = \"my_api\")"
+    },
+    {
+        "query": "I want to post a comment for the IP address 192.168.0.1 on VirusTotal. My API key is KEY123. The json for comment is: {\"type\": \"comment\", \"attributes\": {\"text\": \"This looks suspicious #malware\"}}",
+        "reference": "vt_add_comment_to_ip_address(ip = \"192.168.0.1\", data = {\"type\": \"comment\", \"attributes\": {\"text\": \"This looks suspicious #malware\"}}, x_apikey = \"KEY123\")"
+    },
+    {
+        "query": "Please add a comment to the IP address 172.16.254.1 on VirusTotal. Use my API key DEF456. The comment json is: {\"type\": \"comment\", \"attributes\": {\"text\": \"Clean IP #safe\"}}",
+        "reference": "vt_add_comment_to_ip_address(ip = \"172.16.254.1\", data = {\"type\": \"comment\", \"attributes\": {\"text\": \"Clean IP #safe\"}}, x_apikey = \"DEF456\")"
+    },
+    {
+        "query": "Can we post this comment for 10.0.0.1 on VirusTotal? My API key is XYZ789. The comment json is: {\"type\": \"comment\", \"attributes\": {\"text\": \"Needs review #unsure\"}}",
+        "reference": "vt_add_comment_to_ip_address(ip = \"10.0.0.1\", data = {\"type\": \"comment\", \"attributes\": {\"text\": \"Needs review #unsure\"}}, x_apikey = \"XYZ789\")"
+    },
+    {
+        "query": "Could you help me add a comment to IP 192.168.1.1 on VirusTotal? My key is ABC321. Here is the comment json: {\"type\": \"comment\", \"attributes\": {\"text\": \"Confirmed #malware\"}}",
+        "reference": "vt_add_comment_to_ip_address(ip = \"192.168.1.1\", data = {\"type\": \"comment\", \"attributes\": {\"text\": \"Confirmed #malware\"}}, x_apikey = \"ABC321\")"
+    },
+    {
+        "query": "Post this comment for IP 203.0.113.0 on VirusTotal. My API key is GHI654. The comment json is: {\"type\": \"comment\", \"attributes\": {\"text\": \"Checked #clean\"}}",
+        "reference": "vt_add_comment_to_ip_address(ip = \"203.0.113.0\", data = {\"type\": \"comment\", \"attributes\": {\"text\": \"Checked #clean\"}}, x_apikey = \"GHI654\")"
+    },
+    {
+        "query": "Could you post a new comment for the IP 10.5.1.1 on VirusTotal? Here is my API key: KEY124. Comment content: {\"type\": \"comment\", \"attributes\": {\"text\": \"#unknown threat detected\"}}",
+        "reference": "vt_add_comment_to_ip_address(ip = \"10.5.1.1\", data = {\"type\": \"comment\", \"attributes\": {\"text\": \"#unknown threat detected\"}}, x_apikey = \"KEY124\")"
+    },
+    {
+        "query": "Please submit a comment on VirusTotal for IP 123.45.67.89. My access key is DEF789. The JSON for the comment is: {\"type\": \"comment\", \"attributes\": {\"text\": \"Seems to be a #clean IP\"}}",
+        "reference": "vt_add_comment_to_ip_address(ip = \"123.45.67.89\", data = {\"type\": \"comment\", \"attributes\": {\"text\": \"Seems to be a #clean IP\"}}, x_apikey = \"DEF789\")"
+    },
+    {
+        "query": "Add this comment on VirusTotal for the IP address 192.0.2.1: {\"type\": \"comment\", \"attributes\": {\"text\": \"#suspicious activity observed\"}}. My API key is XYZ987.",
+        "reference": "vt_add_comment_to_ip_address(ip = \"192.0.2.1\", data = {\"type\": \"comment\", \"attributes\": {\"text\": \"#suspicious activity observed\"}}, x_apikey = \"XYZ987\")"
+    },
+    {
+        "query": "Let's leave a comment for IP 198.51.100.0 on VirusTotal. My API key: ABC654. Comment JSON: {\"type\": \"comment\", \"attributes\": {\"text\": \"IP seems #safe and clear\"}}",
+        "reference": "vt_add_comment_to_ip_address(ip = \"198.51.100.0\", data = {\"type\": \"comment\", \"attributes\": {\"text\": \"IP seems #safe and clear\"}}, x_apikey = \"ABC654\")"
+    },
+    {
+        "query": "I need to comment on the IP 203.0.113.1 in VirusTotal. Here is my API key: GHI765. The comment to post is: {\"type\": \"comment\", \"attributes\": {\"text\": \"#malware detected in traffic\"}}",
+        "reference": "vt_add_comment_to_ip_address(ip = \"203.0.113.1\", data = {\"type\": \"comment\", \"attributes\": {\"text\": \"#malware detected in traffic\"}}, x_apikey = \"GHI765\")"
+    },
+    {
+        "query": "Can you help me get files that communicate with the IP address 12.234.56.126 on VirusTotal? My key is my_api. Note that the max number to retrieve is 10, and the continuation cursor is 'pointer'. Thanks.",
+        "reference": "vt_get_objects_related_to_ip_address(ip = \"12.234.56.126\", relationship = \"communicating_files\", x_apikey = \"my_api\", limit = 10, cursor = \"pointer\")"
+    },
+    {
+        "query": "I'd like to fetch comments related to IP 23.45.67.8 from VirusTotal. Use the API key 'sec_key1'. Could you retrieve a maximum of 15 entries?",
+        "reference": "vt_get_objects_related_to_ip_address(ip = \"23.45.67.8\", relationship = \"comments\", x_apikey = \"sec_key1\", limit = 15)"
+    },
+    {
+        "query": "Please help me access graphs that include IP 34.56.78.9 on VirusTotal using 'sec_key2'.",
+        "reference": "vt_get_objects_related_to_ip_address(ip = \"34.56.78.9\", relationship = \"graphs\", x_apikey = \"sec_key2\")"
+    },
+    {
+        "query": "How can I view files that have the IP address 45.67.89.0 in them on VirusTotal? I have the API key 'sec_key3'. Fetch a max of 20.",
+        "reference": "vt_get_objects_related_to_ip_address(ip = \"45.67.89.0\", relationship = \"referrer_files\", x_apikey = \"sec_key3\", limit = 20)"
+    },
+    {
+        "query": "I'm looking for SSL certificates associated with the IP 56.78.90.1 on VirusTotal. My API key for this task is 'sec_key4'.",
+        "reference": "vt_get_objects_related_to_ip_address(ip = \"56.78.90.1\", relationship = \"historical_ssl_certificates\", x_apikey = \"sec_key4\")"
+    },
+    {
+        "query": "Help me retrieve a list of resolutions for IP 67.89.0.1 on VirusTotal. I'll use the API key 'sec_key5' and need the first 25 records.",
+        "reference": "vt_get_objects_related_to_ip_address(ip = \"67.89.0.1\", relationship = \"resolutions\", x_apikey = \"sec_key5\", limit = 25)"
+    },
+    {
+        "query": "Retrieve WHOIS information for the IP address 98.76.54.32 using the API key 'alpha_key'.",
+        "reference": "vt_get_objects_related_to_ip_address(ip = \"98.76.54.32\", relationship = \"historical_whois\", x_apikey = \"alpha_key\")"
+    },
+    {
+        "query": "I want to see all files that were downloaded from IP 123.45.67.8. My API key is 'beta_key'. Limit it to 30 results.",
+        "reference": "vt_get_objects_related_to_ip_address(ip = \"123.45.67.8\", relationship = \"downloaded_files\", x_apikey = \"beta_key\", limit = 30)"
+    },
+    {
+        "query": "Show me URLs related to IP 87.65.43.21 with the key 'gamma_key'. Also, set the continuation cursor to 'next_page'.",
+        "reference": "vt_get_objects_related_to_ip_address(ip = \"87.65.43.21\", relationship = \"urls\", x_apikey = \"gamma_key\", cursor = \"next_page\")"
+    },
+    {
+        "query": "Fetch community posted comments in the IP's related objects for 109.87.65.43. I'll be using 'delta_key' for this.",
+        "reference": "vt_get_objects_related_to_ip_address(ip = \"109.87.65.43\", relationship = \"related_comments\", x_apikey = \"delta_key\")"
+    },
+    {
+        "query": "I'd like a list of threat actors related to the IP 192.168.1.1. Use the key 'epsilon_key' and get only the first 5.",
+        "reference": "vt_get_objects_related_to_ip_address(ip = \"192.168.1.1\", relationship = \"related_threat_actors\", x_apikey = \"epsilon_key\", limit = 5)"
+    },
+    {
+        "query": "Can you help me get descriptors of files that communicate with the IP address 12.234.56.126 on VirusTotal? My key is my_api. Note that the max number to retrieve is 10, and the continuation cursor is 'current_cursor'. Only return the object's IDs and potential context attributes, don't return all attributes",
+        "reference": "vt_get_object_descriptors_related_to_ip_address(ip = \"12.234.56.126\", relationship = \"communicating_files\", x_apikey = \"my_api\", limit = 10, cursor = \"current_cursor\")"
+    },
+    {
+        "query": "I'd like the IDs and context attributes of files communicating with IP 178.34.55.101 on VirusTotal. Please utilize the 'super_api' key and restrict results to 15, setting the cursor to 'next_set'.",
+        "reference": "vt_get_object_descriptors_related_to_ip_address(ip = \"178.34.55.101\", relationship = \"communicating_files\", x_apikey = \"super_api\", limit = 15, cursor = \"next_set\")"
+    },
+    {
+        "query": "On VirusTotal, fetch the IDs for the files that were downloaded from IP 56.87.45.23. Use my 'pro_api' key and set a max of 20 results. If possible, use the 'start_cursor' for continuation.",
+        "reference": "vt_get_object_descriptors_related_to_ip_address(ip = \"56.87.45.23\", relationship = \"downloaded_files\", x_apikey = \"pro_api\", limit = 20, cursor = \"start_cursor\")"
+    },
+    {
+        "query": "I want descriptors of comments related to IP 129.56.78.90 on VirusTotal. For this, apply the 'advanced_api' key and keep the limit to 5. Use the cursor named 'page_two'.",
+        "reference": "vt_get_object_descriptors_related_to_ip_address(ip = \"129.56.78.90\", relationship = \"comments\", x_apikey = \"advanced_api\", limit = 5, cursor = \"page_two\")"
+    },
+    {
+        "query": "Fetch me the IDs of files that include IP 201.202.203.204 on VirusTotal. Use the key 'ultimate_api'. Also, restrict it to 10 results, and set the cursor to 'cont_position'.",
+        "reference": "vt_get_object_descriptors_related_to_ip_address(ip = \"201.202.203.204\", relationship = \"referrer_files\", x_apikey = \"ultimate_api\", limit = 10, cursor = \"cont_position\")"
+    },
+    {
+        "query": "Provide the WHOIS data descriptors for the IP 123.123.123.123 on VirusTotal. For this task, employ the 'elite_api' key and only retrieve a maximum of 7 results. Also, I'd appreciate if you can set the continuation cursor to 'next_seven'.",
+        "reference": "vt_get_object_descriptors_related_to_ip_address(ip = \"123.123.123.123\", relationship = \"historical_whois\", x_apikey = \"elite_api\", limit = 7, cursor = \"next_seven\")"
+    },
+    {
+        "query": "For IP 245.67.89.10 on VirusTotal, get the IDs of files that reference it. My key is 'api_key_1'. Limit it to 12 and use the cursor 'cursor_a'.",
+        "reference": "vt_get_object_descriptors_related_to_ip_address(ip = \"245.67.89.10\", relationship = \"referrer_files\", x_apikey = \"api_key_1\", limit = 12, cursor = \"cursor_a\")"
+    },
+    {
+        "query": "Using 'api_key_2', retrieve the IDs of graphs containing IP 145.34.45.56 on VirusTotal. Don't forget to set the cursor as 'cursor_b' and limit the results to 8.",
+        "reference": "vt_get_object_descriptors_related_to_ip_address(ip = \"145.34.45.56\", relationship = \"graphs\", x_apikey = \"api_key_2\", limit = 8, cursor = \"cursor_b\")"
+    },
+    {
+        "query": "I'd like IDs of files downloaded from IP 77.88.99.00 on VirusTotal. My access key is 'api_key_3'. Kindly limit to 15 and use 'cursor_c' as the continuation point.",
+        "reference": "vt_get_object_descriptors_related_to_ip_address(ip = \"77.88.99.00\", relationship = \"downloaded_files\", x_apikey = \"api_key_3\", limit = 15, cursor = \"cursor_c\")"
+    },
+    {
+        "query": "With the key 'api_key_4', obtain IDs of SSL certificates linked to IP 88.77.66.55 on VirusTotal. Keep the maximum results to 20 and set the cursor at 'cursor_d'.",
+        "reference": "vt_get_object_descriptors_related_to_ip_address(ip = \"88.77.66.55\", relationship = \"historical_ssl_certificates\", x_apikey = \"api_key_4\", limit = 20, cursor = \"cursor_d\")"
+    },
+    {
+        "query": "Fetch me the IDs related to threat actors of IP 22.33.44.55 on VirusTotal. Utilize the 'api_key_5' for this request. Also, restrict to 5 results and apply the 'cursor_e' cursor.",
+        "reference": "vt_get_object_descriptors_related_to_ip_address(ip = \"22.33.44.55\", relationship = \"related_threat_actors\", x_apikey = \"api_key_5\", limit = 5, cursor = \"cursor_e\")"
+    },
+    {
+        "query": "Can you help me get votes on this IP address? example.com",
+        "reference": "vt_get_votes_on_ip_address(ip = \"example.com\")"
+    },
+    {
+        "query": "Can you fetch me the votes related to this IP address: mywebsite.com?",
+        "reference": "vt_get_votes_on_ip_address(ip = \"mywebsite.com\")"
+    },
+    {
+        "query": "I'd like to see the votes for the IP address at samplepage.net. Can you help?",
+        "reference": "vt_get_votes_on_ip_address(ip = \"samplepage.net\")"
+    },
+    {
+        "query": "I'm interested in understanding the votes associated with the IP address testwebsite.org. Could you retrieve that for me?",
+        "reference": "vt_get_votes_on_ip_address(ip = \"testwebsite.org\")"
+    },
+    {
+        "query": "Could you show me the votes for the IP located at mysite.io?",
+        "reference": "vt_get_votes_on_ip_address(ip = \"mysite.io\")"
+    },
+    {
+        "query": "I'm keen to find out the votes for the IP address http://checkthisout.net. Please help.",
+        "reference": "vt_get_votes_on_ip_address(ip = \"checkthisout.net\")"
+    },
+    {
+        "query": "Could you pull up the votes for the IP from http://inspectlink.com for me?",
+        "reference": "vt_get_votes_on_ip_address(ip = \"inspectlink.com\")"
+    },
+    {
+        "query": "I'd appreciate if you could fetch the votes associated with the IP address http://viewpage.net.",
+        "reference": "vt_get_votes_on_ip_address(ip = \"viewpage.net\")"
+    },
+    {
+        "query": "I need to understand the votes tied to the IP address http://explorerweb.org. Can you retrieve it?",
+        "reference": "vt_get_votes_on_ip_address(ip = \"explorerweb.org\")"
+    },
+    {
+        "query": "Please help me get the votes associated with the IP of http://digdeep.io.",
+        "reference": "vt_get_votes_on_ip_address(ip = \"digdeep.io\")"
+    },
+    {
+        "query": "I'm looking to find out the votes connected to the IP address http://surfthis.net. Can you assist?",
+        "reference": "vt_get_votes_on_ip_address(ip = \"surfthis.net\")"
+    },
+    {
+        "query": "Can you gather votes for the IP address 12.23.145.89?",
+        "reference": "vt_get_votes_on_ip_address(ip = \"12.23.145.89\")"
+    },
+    {
+        "query": "Would you be able to fetch the votes for 15.24.135.80?",
+        "reference": "vt_get_votes_on_ip_address(ip = \"15.24.135.80\")"
+    },
+    {
+        "query": "I'm interested in the votes related to the IP 18.25.143.95. Could you help me retrieve them?",
+        "reference": "vt_get_votes_on_ip_address(ip = \"18.25.143.95\")"
+    },
+    {
+        "query": "Please provide the votes associated with the IP address 12.26.155.88.",
+        "reference": "vt_get_votes_on_ip_address(ip = \"12.26.155.88\")"
+    },
+    {
+        "query": "Can you assist in fetching votes for the IP 14.22.132.81?",
+        "reference": "vt_get_votes_on_ip_address(ip = \"14.22.132.81\")"
+    },
+    {
+        "query": "Can you help me add a vote to an IP address 12.234.56.126 on VirusTotal? My key is my_api. The json of vote is here: {\"type\": \"vote\", \"attributes\": {\"verdict\": \"malicious\"}}",
+        "reference": "vt_add_votes_to_ip_address(ip = \"12.234.56.126\", data = {\"type\": \"vote\", \"attributes\": {\"verdict\": \"malicious\"}}, x_apikey = \"my_api\")"
+    },
+    {
+        "query": "I want to submit a vote for the IP address 15.234.67.128 on VirusTotal. My access key is 'access_api'. Here's the vote details: {\"type\": \"vote\", \"attributes\": {\"verdict\": \"harmless\"}}",
+        "reference": "vt_add_votes_to_ip_address(ip = \"15.234.67.128\", data = {\"type\": \"vote\", \"attributes\": {\"verdict\": \"harmless\"}}, x_apikey = \"access_api\")"
+    },
+    {
+        "query": "Using my API key 'unique_api', I'd like to cast a malicious vote for 14.235.68.129 on VirusTotal. Here's the vote structure: {\"type\": \"vote\", \"attributes\": {\"verdict\": \"malicious\"}}",
+        "reference": "vt_add_votes_to_ip_address(ip = \"14.235.68.129\", data = {\"type\": \"vote\", \"attributes\": {\"verdict\": \"malicious\"}}, x_apikey = \"unique_api\")"
+    },
+    {
+        "query": "Can you assist me in marking the IP 16.236.69.130 as harmless on VirusTotal? Here's the voting json: {\"type\": \"vote\", \"attributes\": {\"verdict\": \"harmless\"}}. Use the API key 'secret_api'.",
+        "reference": "vt_add_votes_to_ip_address(ip = \"16.236.69.130\", data = {\"type\": \"vote\", \"attributes\": {\"verdict\": \"harmless\"}}, x_apikey = \"secret_api\")"
+    },
+    {
+        "query": "For IP 17.237.70.131, I'd like to record a vote indicating it's malicious. My VirusTotal API token is 'token_api'. Here's the JSON for the vote: {\"type\": \"vote\", \"attributes\": {\"verdict\": \"malicious\"}}",
+        "reference": "vt_add_votes_to_ip_address(ip = \"17.237.70.131\", data = {\"type\": \"vote\", \"attributes\": {\"verdict\": \"malicious\"}}, x_apikey = \"token_api\")"
+    },
+    {
+        "query": "I've determined IP 18.238.71.132 to be harmless. How can I add this vote on VirusTotal with my API key 'public_api'? The voting structure is: {\"type\": \"vote\", \"attributes\": {\"verdict\": \"harmless\"}}",
+        "reference": "vt_add_votes_to_ip_address(ip = \"18.238.71.132\", data = {\"type\": \"vote\", \"attributes\": {\"verdict\": \"harmless\"}}, x_apikey = \"public_api\")"
+    },
+    {
+        "query": "I've got an IP, 19.239.72.133, that I want to label as 'malicious' on VirusTotal. Can you assist with that using my API key 'key_one'? The voting structure should be like this: {\"type\": \"vote\", \"attributes\": {\"verdict\": \"malicious\"}}",
+        "reference": "vt_add_votes_to_ip_address(ip = \"19.239.72.133\", data = {\"type\": \"vote\", \"attributes\": {\"verdict\": \"malicious\"}}, x_apikey = \"key_one\")"
+    },
+    {
+        "query": "Using the API key 'key_two', can I cast a harmless vote for the IP address 20.240.73.134 on VirusTotal? The voting data is: {\"type\": \"vote\", \"attributes\": {\"verdict\": \"harmless\"}}",
+        "reference": "vt_add_votes_to_ip_address(ip = \"20.240.73.134\", data = {\"type\": \"vote\", \"attributes\": {\"verdict\": \"harmless\"}}, x_apikey = \"key_two\")"
+    },
+    {
+        "query": "I suspect the IP 21.241.74.135 is benign. I'd like to mark it as such on VirusTotal using 'key_three'. The vote details are: {\"type\": \"vote\", \"attributes\": {\"verdict\": \"harmless\"}}",
+        "reference": "vt_add_votes_to_ip_address(ip = \"21.241.74.135\", data = {\"type\": \"vote\", \"attributes\": {\"verdict\": \"harmless\"}}, x_apikey = \"key_three\")"
+    },
+    {
+        "query": "With my 'key_four', I want to submit a vote indicating IP 22.242.75.136 is malicious on VirusTotal. Here's the voting JSON: {\"type\": \"vote\", \"attributes\": {\"verdict\": \"malicious\"}}",
+        "reference": "vt_add_votes_to_ip_address(ip = \"12.234.56.126\", data = {\"type\": \"vote\", \"attributes\": {\"verdict\": \"malicious\"}}, x_apikey = \"key_four\")"
+    },
+    {
+        "query": "Can I use 'key_five' to designate IP 23.243.76.137 as harmless on VirusTotal? The voting structure I have is: {\"type\": \"vote\", \"attributes\": {\"verdict\": \"harmless\"}}",
+        "reference": "vt_add_votes_to_ip_address(ip = \"23.243.76.137\", data = {\"type\": \"vote\", \"attributes\": {\"verdict\": \"harmless\"}}, x_apikey = \"key_five\")"
+    }
+]
