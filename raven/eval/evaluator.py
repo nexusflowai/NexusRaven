@@ -242,7 +242,7 @@ class Evaluator:
                 raise KeyError(f"Invalid agent_name `{self.agent_name}`")
 
     def _build_toolllm_agent(self, llm: Any, tools: List[StructuredTool]) -> Any:
-        if hasattr(self, "agent"):
+        if self.agent is not None:
             return self.agent
 
         responses = load_dataset(
@@ -272,7 +272,7 @@ class Evaluator:
         TODO this is currently hardcoded to a specific dataset path
         """
 
-        if hasattr(self, "agent"):
+        if self.agent is not None:
             return self.agent
 
         responses = load_dataset(
