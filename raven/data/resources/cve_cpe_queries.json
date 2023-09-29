@@ -1,0 +1,314 @@
+[
+    {
+        "query": "I want to check vulnerability related to Microsoft Exchange 2010. Can you provide me with a list of two representative CPEs?",
+        "reference": "r = nvdlib.searchCPE(keywordSearch = 'Microsoft Exchange 2010', limit = 2)"
+    },
+    {
+        "query": "Filter for a partial cpeMatchString for Microsoft Exchange 2013, return all the vulnerabilities for said matching CPEs, and print their CVE IDs.",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:a:microsoft:exchange_server:2013:')"
+    },
+    {
+        "query": "Filter for CPE names modfied between 2020-01-01 and 2020-02-01 with the keyword of PHP.",
+        "reference": "r = nvdlib.searchCPE(lastModStartDate='2020-01-01 00:00', lastModEndDate='2020-02-01 00:00', keywordSearch='PHP')"
+    },
+    {
+        "query": "Look for CPEs related to 'Windows 10'. I want to see the most recent 5 and print the request URL for debugging.",
+        "reference": "r = nvdlib.searchCPE(keywordSearch='Windows 10', limit=5, verbose=True)"
+    },
+    {
+        "query": "Can you get me the exact CPE matches for 'cpe:2.3:a:apache:http_server:2.4.29:' and show the URL request?",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:a:apache:http_server:2.4.29:', verbose=True)"
+    },
+    {
+        "query": "I'm looking for vulnerabilities in 'Mozilla Firefox'. Retrieve only the first 10 records.",
+        "reference": "r = nvdlib.searchCPE(keywordSearch='Mozilla Firefox', limit=10)"
+    },
+    {
+        "query": "Find CPEs with the partial name 'cpe:2.3:a:google:chrome:' and limit the results to 3. Use my API key 'xyz789' for faster requests.",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:a:google:chrome:', limit=3, key='xyz789')"
+    },
+    {
+        "query": "I want to see all the CPEs that were modified between '2021-03-01' and '2021-04-01' with the term 'Linux'.",
+        "reference": "r = nvdlib.searchCPE(lastModStartDate='2021-03-01 00:00', lastModEndDate='2021-04-01 00:00', keywordSearch='Linux')"
+    },
+    {
+        "query": "Show me the CPEs matching the string 'cpe:2.3:o:microsoft:windows_8:', and please print the request URL for my reference.",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:o:microsoft:windows_8:', verbose=True)"
+    },
+    {
+        "query": "Could you please pull the CPE records associated with 'Java' and limit them to the first 8 results?",
+        "reference": "r = nvdlib.searchCPE(keywordSearch='Java', limit=8)"
+    },
+    {
+        "query": "I need to fetch the CPEs that have seen modifications between the first day of 2021 and March 15, 2021. Also, they should be related to 'nginx'.",
+        "reference": "r = nvdlib.searchCPE(lastModStartDate='2021-01-01 00:00', lastModEndDate='2021-03-15 00:00', keywordSearch='nginx')"
+    },
+    {
+        "query": "Seek out CPEs that closely align with the partial name 'cpe:2.3:o:apple:ios:'. Display the top 4 and also provide the request URL.",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:o:apple:ios:', limit=4, verbose=True)"
+    },
+    {
+        "query": "Would you be able to retrieve records of CPEs that underwent changes between April 1, 2022, and April 30, 2022?",
+        "reference": "r = nvdlib.searchCPE(lastModStartDate='2022-04-01 00:00', lastModEndDate='2022-04-30 00:00')"
+    },
+    {
+        "query": "I'm trying to trace CPEs that are precisely matched with 'cpe:2.3:a:oracle:database:12.1.0.2:'. Can you also ensure there's a shorter delay between requests by using my API key 'api-key-123'?",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:a:oracle:database:12.1.0.2:', key='api-key-123')"
+    },
+    {
+        "query": "Using the key 'special-key-456', I'd like to view CPEs related to 'Adobe Flash'. If possible, display the request URL for reference.",
+        "reference": "r = nvdlib.searchCPE(keywordSearch='Adobe Flash', key='special-key-456', verbose=True)"
+    },
+    {
+        "query": "Let's search for CPEs with ties to 'Python' that have been modified after June 1, 2022, but before June 30, 2022.",
+        "reference": "r = nvdlib.searchCPE(lastModStartDate='2022-06-01 00:00', lastModEndDate='2022-06-30 00:00', keywordSearch='Python')"
+    },
+    {
+        "query": "Can you help narrow down CPEs that are aligned with the string 'cpe:2.3:a:ibm:cloud:'? And also, please trim the results to just 6 entries.",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:a:ibm:cloud:', limit=6)"
+    },
+    {
+        "query": "I'm curious about the CPEs associated with 'MySQL'. Could you show me the first 7, and also ensure you display the request URL for me?",
+        "reference": "r = nvdlib.searchCPE(keywordSearch='MySQL', limit=7, verbose=True)"
+    },
+    {
+        "query": "I'd love to retrieve CPEs updated between February 10, 2021, and March 20, 2021, that are related to 'Tomcat'. Also, I want a shorter delay with my API key 'fast-key-789'.",
+        "reference": "r = nvdlib.searchCPE(lastModStartDate='2021-02-10 00:00', lastModEndDate='2021-03-20 00:00', keywordSearch='Tomcat', key='fast-key-789')"
+    },
+    {
+        "query": "How about we look for CPEs that match the string 'cpe:2.3:o:redhat:linux:'? Show just the top 3, please.",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:o:redhat:linux:', limit=3)"
+    },
+    {
+        "query": "For the sake of auditing, I want to see CPEs that changed post-January 15, 2022, until February 15, 2022. Also, I'm particularly interested in those containing 'SSH' in their metadata.",
+        "reference": "r = nvdlib.searchCPE(lastModStartDate='2022-01-15 00:00', lastModEndDate='2022-02-15 00:00', keywordSearch='SSH')"
+    },
+    {
+        "query": "Find me CPEs that align exactly with the pattern 'cpe:2.3:a:sap:netweaver:' and use my API key 'pro-key-321' to speed up the requests.",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:a:sap:netweaver:', key='pro-key-321')"
+    },
+    {
+        "query": "Using the provided key 'elite-key-654', fetch CPEs that have any connections with 'Drupal'. Also, if you could display the request URL, that would be great!",
+        "reference": "r = nvdlib.searchCPE(keywordSearch='Drupal', key='elite-key-654', verbose=True)"
+    },
+    {
+        "query": "For our security assessment, we need CPEs related to 'VMware' that were modified after May 5, 2022, and before May 25, 2022. Also, ensure to provide the request URL.",
+        "reference": "r = nvdlib.searchCPE(lastModStartDate='2022-05-05 00:00', lastModEndDate='2022-05-25 00:00', keywordSearch='VMware', verbose=True)"
+    },
+    {
+        "query": "Could you help identify CPEs that closely resemble the pattern 'cpe:2.3:a:google:android:'? And please, limit the results to just 5.",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:a:google:android:', limit=5)"
+    },
+    {
+        "query": "I'm interested in CPEs that underwent changes between March 10 and March 30 of 2022, and are associated with 'PostgreSQL'. Can you also provide a debug URL?",
+        "reference": "r = nvdlib.searchCPE(lastModStartDate='2022-03-10 00:00', lastModEndDate='2022-03-30 00:00', keywordSearch='PostgreSQL', verbose=True)"
+    },
+    {
+        "query": "I'm conducting a study on 'OpenSSL'. Could you fetch the first 10 CPEs related to it?",
+        "reference": "r = nvdlib.searchCPE(keywordSearch='OpenSSL', limit=10)"
+    },
+    {
+        "query": "Hoping to view CPEs related to 'Windows 10' that were modified between August 1, 2021, and September 1, 2021. Please utilize my API key 'api-fast-101' to expedite the process.",
+        "reference": "r = nvdlib.searchCPE(keywordSearch='Windows 10', lastModStartDate='2021-08-01 00:00', lastModEndDate='2021-09-01 00:00', key='api-fast-101')"
+    },
+    {
+        "query": "Look up CPEs matching 'cpe:2.3:o:linux:ubuntu:'. Return only the top 5 results for now.",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:o:linux:ubuntu:', limit=5)"
+    },
+    {
+        "query": "Desire to see CPEs that were updated between January 1, 2022, and January 31, 2022. Specifically interested in CPEs with 'Firefox' in their metadata. Can I also get the request URL for reference?",
+        "reference": "r = nvdlib.searchCPE(keywordSearch='Firefox', lastModStartDate='2022-01-01 00:00', lastModEndDate='2022-01-31 00:00', verbose=True)"
+    },
+    {
+        "query": "I'm after the CPEs exactly matching 'cpe:2.3:a:mongodb:server:'. Could you employ my API key 'key-pro-202' to lessen the request delay?",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:a:mongodb:server:', key='key-pro-202')"
+    },
+    {
+        "query": "With the help of the 'vip-key-303' API key, procure CPEs associated with 'Apache Struts'. And yes, I'd like to see the request URL as well.",
+        "reference": "r = nvdlib.searchCPE(keywordSearch='Apache Struts', key='vip-key-303', verbose=True)"
+    },
+    {
+        "query": "For a security review, it's imperative I get CPEs linked to 'Django' that underwent changes after July 10, 2022, up till July 30, 2022.",
+        "reference": "r = nvdlib.searchCPE(keywordSearch='Django', lastModStartDate='2022-07-10 00:00', lastModEndDate='2022-07-30 00:00')"
+    },
+    {
+        "query": "We're in need of CPEs mirroring the pattern 'cpe:2.3:o:microsoft:windows_server:'. Could you curate a list of just the initial 6?",
+        "reference": "r = nvdlib.searchCPE(cpeMatchString='cpe:2.3:o:microsoft:windows_server:', limit=6)"
+    },
+    {
+        "query": "Can we explore CPEs updated between October 10, 2021, and October 20, 2021, having 'Wordpress' in their description? Also, if it's not too much to ask, could you display the debug URL?",
+        "reference": "r = nvdlib.searchCPE(keywordSearch='Wordpress', lastModStartDate='2021-10-10 00:00', lastModEndDate='2021-10-20 00:00', verbose=True)"
+    },
+    {
+        "query": "I want to check vulnerability related to Microsoft Exchange 2010. Can you provide me with a list of two representative CVEs?",
+        "reference": "r = nvdlib.searchCVE(keywordSearch='Microsoft Exchange 2010', limit=2)"
+    },
+    {
+        "query": "Check vulnerability of RedHat from Sept 8, 2021 to December 1, 2021 Can you provide me with a list of two representative CVEs?",
+        "reference": "r = nvdlib.searchCVE(pubStartDate = '2021-09-08 00:00', pubEndDate = '2021-12-01 00:00', keywordSearch = 'RedHat', limit=2)"
+    },
+    {
+        "query": "Use CVE and Check vulnerability of RedHat from Sept 8, 2021 to December 1, 2021, only check version 2 severity of HIGH. ",
+        "reference": "r = nvdlib.searchCVE(pubStartDate = '2021-09-08 00:00', pubEndDate = '2021-12-01 00:00', keywordSearch = 'RedHat', cvssV2Severity = 'HIGH')"
+    },
+    {
+        "query": "Could you get the details of the CVE with the ID CVE-2023-0144?",
+        "reference": "r = nvdlib.searchCVE(cveId='CVE-2023-0144')"
+    },
+    {
+        "query": "What are the vulnerabilities associated with the CPE 'cpe:/o:microsoft:windows_10:1909'?",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/o:microsoft:windows_10:1909')"
+    },
+    {
+        "query": "Can you list all the vulnerabilities that have 'HIGH' severity in CVSSv3?",
+        "reference": "r = nvdlib.searchCVE(cvssV3Severity='HIGH')"
+    },
+    {
+        "query": "Find the vulnerabilities that are related to 'XSS'?",
+        "reference": "r = nvdlib.searchCVE(keywordSearch='XSS')"
+    },
+    {
+        "query": "Find the vulnerabilities associated with CWE-79.",
+        "reference": "r = nvdlib.searchCVE(cweId='79')"
+    },
+    {
+        "query": "Find the vulnerabilities that were published between 2023-05-01 and 2023-06-30.",
+        "reference": "r = nvdlib.searchCVE(pubStartDate='2023-05-01', pubEndDate='2023-06-30')"
+    },
+    {
+        "query": "Find any vulnerabilities associated with the CPE 'cpe:/a:microsoft:office:365'.",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/a:microsoft:office:365')"
+    },
+    {
+        "query": "Fetch the details for CVE-2023-1234.",
+        "reference": "r = nvdlib.searchCVE(cveId='CVE-2023-1234')"
+    },
+    {
+        "query": "Which vulnerabilities are associated with CWE-79?",
+        "reference": "r = nvdlib.searchCVE(cweId='79')"
+    },
+    {
+        "query": "Show me 'HIGH' severity vulnerabilities using CVSSv2.",
+        "reference": "r = nvdlib.searchCVE(cvssV2Severity='HIGH')"
+    },
+    {
+        "query": "What vulnerabilities were published between January 1, 2023 and March 30, 2023?",
+        "reference": "r = nvdlib.searchCVE(pubStartDate='2023-01-01', pubEndDate='2023-03-30')"
+    },
+    {
+        "query": "Find 'MEDIUM' severity vulnerabilities using CVSSv3 for CPE 'cpe:/a:microsoft:office:365'.",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/a:microsoft:office:365', cvssV3Severity='MEDIUM')"
+    },
+    {
+        "query": "Show me vulnerabilities related to 'Buffer Overflow'.",
+        "reference": "r = nvdlib.searchCVE(keywordSearch='Buffer Overflow')"
+    },
+    {
+        "query": "Find vulnerabilities associated with 'SQL Injection' and CWE-89.",
+        "reference": "r = nvdlib.searchCVE(keywordSearch='SQL Injection', cweId='89')"
+    },
+    {
+        "query": "Are there any vulnerabilities with a US-CERT technical alert associated with the CPE 'cpe:/a:microsoft:office:365'?",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/a:microsoft:office:365', hasCertAlerts=True)"
+    },
+    {
+        "query": "Are there any reported vulnerabilities with a CERT/CC note for 'cpe:/a:microsoft:office:365'?",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/a:microsoft:office:365', hasCertNotes=True)"
+    },
+    {
+        "query": "What are some 'LOW' severity vulnerabilities related to 'XSS' according to CVSSv2?",
+        "reference": "r = nvdlib.searchCVE(keywordSearch='XSS', cvssV2Severity='LOW')"
+    },
+    {
+        "query": "Can you list vulnerabilities related to 'Apache' that were published between July 1, 2023 and July 14, 2023?",
+        "reference": "r = nvdlib.searchCVE(pubStartDate='2023-07-01', pubEndDate='2023-07-14', keywordSearch='Apache')"
+    },
+    {
+        "query": "I'm interested in 'CRITICAL' severity vulnerabilities related to 'Buffer Overflow' using CVSSv3. What can you find?",
+        "reference": "r = nvdlib.searchCVE(keywordSearch='Buffer Overflow', cvssV3Severity='CRITICAL')"
+    },
+    {
+        "query": "What vulnerabilities related to 'SQL Injection' contain information from OVAL?",
+        "reference": "r = nvdlib.searchCVE(keywordSearch='SQL Injection', hasOval=True)"
+    },
+    {
+        "query": "Could you find vulnerabilities related to 'Windows 10' that were modified between March 1, 2023 and March 31, 2023?",
+        "reference": "r = nvdlib.searchCVE(lastModStartDate='2023-03-01', lastModEndDate='2023-03-31', keywordSearch='Windows 10')"
+    },
+    {
+        "query": "Are there any vulnerabilities associated with 'cpe:/o:microsoft:windows_10:1909' where the CPE is also considered vulnerable?",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/o:microsoft:windows_10:1909', isVulnerable=True)"
+    },
+    {
+        "query": "Could you find vulnerabilities related to 'Windows 10' for the CPE 'cpe:/o:microsoft:windows_10:1909' that are not rejected?",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/o:microsoft:windows_10:1909', keywordSearch='Windows 10', noRejected=True)"
+    },
+    {
+        "query": "Could you fetch 100 CVEs that have a source identifier of 'cve@mitre.org'?",
+        "reference": "r = nvdlib.searchCVE(sourceIdentifier='cve@mitre.org', limit=100)"
+    },
+    {
+        "query": "What vulnerabilities are associated with the CPE 'cpe:/a:microsoft:office:365' and exist in versions from 3.0 to 3.5?",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/a:microsoft:office:365', versionStart='3.0', versionStartType='including', versionEnd='3.5', versionEndType='including')"
+    },
+    {
+        "query": "Find vulnerabilities matching the CVSSv2 vector string 'AV:N/AC:M/Au:N/C:P/I:P/A:P' for the source identifier 'cve@mitre.org'.",
+        "reference": "r = nvdlib.searchCVE(sourceIdentifier='cve@mitre.org', cvssV2Metrics='AV:N/AC:M/Au:N/C:P/I:P/A:P')"
+    },
+    {
+        "query": "Find vulnerabilities associated with the CPE 'cpe:/a:microsoft:office:365' and CWE-79.",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/a:microsoft:office:365', cweId='79')"
+    },
+    {
+        "query": "Could you find vulnerabilities related to 'SQL Injection', associated with CWE-89 and have a technical alert from US-CERT?",
+        "reference": "r = nvdlib.searchCVE(keywordSearch='SQL Injection', cweId='89', hasCertAlerts=True)"
+    },
+    {
+        "query": "I'm currently auditing 'cpe:/a:microsoft:office:365' and one of the aspects I'm looking into are notes from CERT/CC. Can you help me find any reported vulnerabilities that come with a note from CERT/CC for this CPE?",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/a:microsoft:office:365', hasCertNotes=True)"
+    },
+    {
+        "query": "I'm doing a report about vulnerabilities and one of the areas I'm focusing on are 'LOW' severity vulnerabilities, particularly those related to 'XSS'. According to CVSSv2, what vulnerabilities fall into this category?",
+        "reference": "r = nvdlib.searchCVE(keywordSearch='XSS', cvssV2Severity='LOW')"
+    },
+    {
+        "query": "We've been using 'Apache' and I just wanted to check if there have been any vulnerabilities published from July 1, 2023, to July 14, 2023. Do you have any information on this?",
+        "reference": "r = nvdlib.searchCVE(pubStartDate='2023-07-01', pubEndDate='2023-07-14', keywordSearch='Apache')"
+    },
+    {
+        "query": "I've been hearing about these 'CRITICAL' severity vulnerabilities related to 'Buffer Overflow' using CVSSv3. Can you give me more details about these vulnerabilities?",
+        "reference": "r = nvdlib.searchCVE(keywordSearch='Buffer Overflow', cvssV3Severity='CRITICAL')"
+    },
+    {
+        "query": "I'm doing a deep dive into vulnerabilities related to 'SQL Injection' and I'm particularly interested in those that contain information from OVAL. Can you help me find these?",
+        "reference": "r = nvdlib.searchCVE(keywordSearch='SQL Injection', hasOval=True)"
+    },
+    {
+        "query": "I remember coming across some vulnerabilities related to 'Windows 10' around March this year. Specifically, those that were modified between March 1, 2023, and March 31, 2023. Can you help me find these again?",
+        "reference": "r = nvdlib.searchCVE(lastModStartDate='2023-03-01', lastModEndDate='2023-03-31', keywordSearch='Windows 10')"
+    },
+    {
+        "query": "Recently, we've been using 'cpe:/o:microsoft:windows_10:1909' and I'm just trying to stay ahead of any potential issues. Are there any vulnerabilities associated with this CPE where it's also considered vulnerable?",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/o:microsoft:windows_10:1909', isVulnerable=True)"
+    },
+    {
+        "query": "I've been tracking vulnerabilities related to 'Windows 10' for the CPE 'cpe:/o:microsoft:windows_10:1909'. However, I only want those that haven't been rejected. Can you help me find these?",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/o:microsoft:windows_10:1909', keywordSearch='Windows 10', noRejected=True)"
+    },
+    {
+        "query": "I've been using software 'cpe:/a:microsoft:office:365' and I heard there might be issues with versions from 3.0 to 3.5. Could you find out if there have been any vulnerabilities within this range?",
+        "reference": "r = nvdlib.searchCVE(cpeName='cpe:/a:microsoft:office:365', versionStart='3.0', versionStartType='including', versionEnd='3.5', versionEndType='including')"
+    },
+    {
+        "query": "I am reviewing vulnerabilities with specific CVSSv3 metrics. The metrics I am interested in are 'AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H'. Can you provide information on vulnerabilities that match these metrics?",
+        "reference": "r = nvdlib.searchCVE(cvssV3Metrics='AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H')"
+    },
+    {
+        "query": "I have an NVD API Key and I want to set a delay between requests for the sake of network performance. Let's use a delay of 10 seconds. My key is '123456789'. Can we proceed with this setup?",
+        "reference": "r = nvdlib.searchCVE(key='123456789', delay=10)"
+    },
+    {
+        "query": "I am trying to find vulnerabilities related to 'SQL Injection'. However, I would also like to see the URL request for debugging purposes. Can you make this happen?",
+        "reference": "r = nvdlib.searchCVE(keywordSearch='SQL Injection', verbose=True)"
+    }
+]
