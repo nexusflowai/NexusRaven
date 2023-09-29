@@ -82,7 +82,7 @@ class ToolLLMFormatQueriesHelper:
         """
         toolllm_api_list = load_dataset(
             path="Nexusflow/NexusRaven_API_evaluation",
-            name="standardized_api_list_subset",
+            name="standardized_api_list",
             split="train",
         )
         toolllm_api_list = toolllm_api_list.filter(
@@ -93,7 +93,7 @@ class ToolLLMFormatQueriesHelper:
 
         toolllm_queries = load_dataset(
             path="Nexusflow/NexusRaven_API_evaluation",
-            name="standardized_api_list_subset",
+            name="standardized_queries",
             split="train",
         )
         toolllm_queries = toolllm_queries.filter(
