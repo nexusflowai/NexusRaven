@@ -105,6 +105,10 @@ Please pick a function from the above options that best answers the user query a
 
 You're welcome to add an arbitrary number of functions in the same format. Using this driver code:
 ```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import transformers
+import torch
+
 model = "Nexusflow/NexusRaven-13B"
 
 tokenizer = AutoTokenizer.from_pretrained(model)
