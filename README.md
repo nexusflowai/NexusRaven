@@ -111,6 +111,10 @@ Please follow this example (including the <human>, OPTION, <func_start>, <func_e
 You can run the model by doing this:
 
 ```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import transformers
+import torch
+
 model = "Nexusflow/NexusRaven-13B"
 
 tokenizer = AutoTokenizer.from_pretrained(model)
